@@ -1,0 +1,2 @@
+2025-07-24 08:23:59,168 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:23:59,169 - utils - INFO - Logging to: logs/log_20250724.txt
