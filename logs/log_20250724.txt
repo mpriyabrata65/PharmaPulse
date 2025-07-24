@@ -334,3 +334,124 @@
 2025-07-24 09:17:54,939 - utils - INFO - Logging to: logs/log_20250724.txt
 2025-07-24 09:17:55,274 - utils - INFO - Pharma Pulse application started
 2025-07-24 09:17:55,275 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:18:14,121 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:18:14,121 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:18:14,128 - login - INFO - Successful login for user: admin
+2025-07-24 09:18:14,220 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:18:14,220 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:18:19,918 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:18:19,919 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:18:23,373 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:18:23,373 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:20:52,468 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:20:52,468 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:20:52,470 - psur_app - INFO - User logged out
+2025-07-24 09:20:52,588 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:20:52,588 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:21:07,603 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:21:07,603 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:21:07,607 - login - WARNING - Failed login attempt for user: admin 
+2025-07-24 09:21:12,668 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:21:12,669 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:21:12,674 - login - WARNING - Failed login attempt for user: admin 
+2025-07-24 09:25:55,562 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:25:55,562 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:25:55,571 - login - INFO - Successful login for user: admin
+2025-07-24 09:25:55,680 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:25:55,681 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:26:01,028 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:26:01,029 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:26:03,187 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:26:03,188 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:26:07,937 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:26:07,937 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:26:15,350 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:26:15,351 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:26:19,728 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:26:19,729 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:26:25,010 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:26:25,015 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:26:26,608 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:26:26,609 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:26:26,640 - backend - INFO - Validation completed for Products.csv: Valid
+2025-07-24 09:26:26,644 - backend - INFO - Validation completed for Authorizations.csv: Valid
+2025-07-24 09:26:26,650 - backend - INFO - Validation completed for AdverseEvents.csv: Valid
+2025-07-24 09:26:26,655 - backend - INFO - Validation completed for RegulatoryActions.csv: Valid
+2025-07-24 09:26:26,659 - backend - INFO - Validation completed for ExposureEstimates.csv: Valid
+2025-07-24 09:26:26,662 - backend - INFO - Validation completed for ClinicalStudies.csv: Valid
+2025-07-24 09:26:26,672 - backend - INFO - Products.csv - ProductIDs: ['101', '102']
+2025-07-24 09:26:26,674 - backend - INFO - Products.csv - ProductIDs: ['101', '102']
+2025-07-24 09:26:26,675 - backend - INFO - Products.csv - ProductIDs: ['101', '102']
+2025-07-24 09:26:26,677 - backend - INFO - Processed Products.csv: 2 rows
+2025-07-24 09:26:26,684 - backend - INFO - Processed Authorizations.csv: 4 rows
+2025-07-24 09:26:26,691 - backend - INFO - Processed AdverseEvents.csv: 3 rows
+2025-07-24 09:26:26,698 - backend - INFO - Processed RegulatoryActions.csv: 2 rows
+2025-07-24 09:26:26,704 - backend - INFO - Processed ExposureEstimates.csv: 3 rows
+2025-07-24 09:26:26,710 - backend - INFO - Processed ClinicalStudies.csv: 2 rows
+2025-07-24 09:26:26,715 - psur_app - INFO - All files validated successfully
+2025-07-24 09:26:33,339 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:26:33,340 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:26:33,351 - backend - INFO - Filtered Products.csv for product 101: 1 rows
+2025-07-24 09:26:33,353 - backend - INFO - Filtered Authorizations.csv for product 101: 2 rows
+2025-07-24 09:26:33,354 - backend - INFO - Filtered AdverseEvents.csv for product 101: 2 rows
+2025-07-24 09:26:33,355 - backend - INFO - Filtered RegulatoryActions.csv for product 101: 1 rows
+2025-07-24 09:26:33,357 - backend - INFO - Filtered ExposureEstimates.csv for product 101: 2 rows
+2025-07-24 09:26:33,359 - backend - INFO - Filtered ClinicalStudies.csv for product 101: 1 rows
+2025-07-24 09:26:33,360 - backend - INFO - Extracted data for product 101
+2025-07-24 09:26:49,316 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:26:49,317 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:26:49,324 - backend - INFO - Filtered Products.csv for product 101: 1 rows
+2025-07-24 09:26:49,326 - backend - INFO - Filtered Authorizations.csv for product 101: 2 rows
+2025-07-24 09:26:49,328 - backend - INFO - Filtered AdverseEvents.csv for product 101: 2 rows
+2025-07-24 09:26:49,329 - backend - INFO - Filtered RegulatoryActions.csv for product 101: 1 rows
+2025-07-24 09:26:49,330 - backend - INFO - Filtered ExposureEstimates.csv for product 101: 2 rows
+2025-07-24 09:26:49,332 - backend - INFO - Filtered ClinicalStudies.csv for product 101: 1 rows
+2025-07-24 09:26:49,333 - backend - INFO - Extracted data for product 101
+2025-07-24 09:26:58,005 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:26:58,006 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:26:58,016 - backend - INFO - Filtered Products.csv for product 101: 1 rows
+2025-07-24 09:26:58,018 - backend - INFO - Filtered Authorizations.csv for product 101: 2 rows
+2025-07-24 09:26:58,021 - backend - INFO - Filtered AdverseEvents.csv for product 101: 2 rows
+2025-07-24 09:26:58,022 - backend - INFO - Filtered RegulatoryActions.csv for product 101: 1 rows
+2025-07-24 09:26:58,026 - backend - INFO - Filtered ExposureEstimates.csv for product 101: 2 rows
+2025-07-24 09:26:58,029 - backend - INFO - Filtered ClinicalStudies.csv for product 101: 1 rows
+2025-07-24 09:26:58,033 - backend - INFO - Extracted data for product 101
+2025-07-24 09:27:00,567 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:27:00,567 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:27:00,577 - backend - INFO - Filtered Products.csv for product 101: 1 rows
+2025-07-24 09:27:00,579 - backend - INFO - Filtered Authorizations.csv for product 101: 2 rows
+2025-07-24 09:27:00,580 - backend - INFO - Filtered AdverseEvents.csv for product 101: 2 rows
+2025-07-24 09:27:00,581 - backend - INFO - Filtered RegulatoryActions.csv for product 101: 1 rows
+2025-07-24 09:27:00,584 - backend - INFO - Filtered ExposureEstimates.csv for product 101: 2 rows
+2025-07-24 09:27:00,585 - backend - INFO - Filtered ClinicalStudies.csv for product 101: 1 rows
+2025-07-24 09:27:00,587 - backend - INFO - Extracted data for product 101
+2025-07-24 09:27:00,603 - backend - INFO - Filtered Products.csv for product 101: 1 rows
+2025-07-24 09:27:00,606 - backend - INFO - Filtered Authorizations.csv for product 101: 2 rows
+2025-07-24 09:27:00,607 - backend - INFO - Filtered AdverseEvents.csv for product 101: 2 rows
+2025-07-24 09:27:00,609 - backend - INFO - Filtered RegulatoryActions.csv for product 101: 1 rows
+2025-07-24 09:27:00,612 - backend - INFO - Filtered ExposureEstimates.csv for product 101: 2 rows
+2025-07-24 09:27:00,613 - backend - INFO - Filtered ClinicalStudies.csv for product 101: 1 rows
+2025-07-24 09:27:00,616 - backend - INFO - Extracted data for product 101
+2025-07-24 09:27:00,616 - psur_app - INFO - Generating report for product 101 with data: [('Products.csv', 1), ('Authorizations.csv', 2), ('AdverseEvents.csv', 2), ('RegulatoryActions.csv', 1), ('ExposureEstimates.csv', 2), ('ClinicalStudies.csv', 1)]
+2025-07-24 09:27:00,616 - report_generator - INFO - Starting PSUR report generation for product: 101
+2025-07-24 09:27:00,618 - report_generator - INFO - Preparing data summary for product data keys: ['Products', 'Authorizations', 'AdverseEvents', 'RegulatoryActions', 'ExposureEstimates', 'ClinicalStudies']
+2025-07-24 09:27:00,619 - report_generator - INFO - Data for Products: 1 rows
+2025-07-24 09:27:00,620 - report_generator - INFO - Data for Authorizations: 2 rows
+2025-07-24 09:27:00,620 - report_generator - INFO - Data for AdverseEvents: 2 rows
+2025-07-24 09:27:00,620 - report_generator - INFO - Data for RegulatoryActions: 1 rows
+2025-07-24 09:27:00,620 - report_generator - INFO - Data for ExposureEstimates: 2 rows
+2025-07-24 09:27:00,620 - report_generator - INFO - Data for ClinicalStudies: 1 rows
+2025-07-24 09:27:01,171 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 09:27:01,172 - openai._base_client - INFO - Retrying request to /chat/completions in 0.406143 seconds
+2025-07-24 09:27:01,728 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 09:27:01,729 - openai._base_client - INFO - Retrying request to /chat/completions in 0.992913 seconds
+2025-07-24 09:27:02,882 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 09:27:02,886 - report_generator - ERROR - Error calling OpenAI API: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-07-24 09:27:02,886 - report_generator - INFO - OpenAI quota exceeded, using enhanced fallback report with actual data
+2025-07-24 09:27:02,887 - report_generator - INFO - Enhanced fallback report generated for product: 101
+2025-07-24 09:27:02,889 - report_generator - INFO - PSUR report generated successfully for product: 101
+2025-07-24 09:27:02,890 - psur_app - INFO - PSUR report generated for product: 101
+2025-07-24 09:29:59,382 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:29:59,383 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:29:59,806 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:29:59,807 - utils - INFO - Logging to: logs/log_20250724.txt

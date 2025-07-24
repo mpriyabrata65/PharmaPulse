@@ -15,31 +15,299 @@ logger = logging.getLogger(__name__)
 def main_app():
     """Main application after successful login"""
     
-    # Sidebar navigation
-    st.sidebar.title("📊 Pharma Pulse")
-    st.sidebar.markdown("---")
+    # Apply the exact UI styling from the reference image with PWC colors
+    st.markdown("""
+    <style>
+    /* Reset and base styling to match reference image */
+    .main > div {
+        padding: 0 !important;
+        max-width: none !important;
+    }
     
-    # Navigation menu
-    page = st.sidebar.selectbox(
-        "Navigate to:",
-        ["📁 Data Upload", "📄 Report Generation", "👤 Account"]
-    )
+    /* Sidebar styling - dark green like in reference */
+    .css-1d391kg {
+        background-color: #2B5D42 !important;
+        border-right: 1px solid #1e3e2b !important;
+    }
     
-    # Logout button
-    if st.sidebar.button("🚪 Logout", type="secondary"):
-        logout()
+    .sidebar .sidebar-content {
+        background-color: #2B5D42 !important;
+        padding: 0 !important;
+    }
     
-    # Display current user
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("**Logged in as:** admin")
-    st.sidebar.markdown(f"**Session started:** {datetime.now().strftime('%d-%b-%Y %H:%M')}")
+    /* Sidebar navigation items */
+    .css-17eq0hr {
+        background-color: #2B5D42 !important;
+        color: white !important;
+    }
+    
+    .css-1v0mbdj .block-container {
+        padding: 0 !important;
+    }
+    
+    /* Sidebar text styling */
+    .sidebar .sidebar-content .element-container {
+        color: white !important;
+    }
+    
+    .sidebar .sidebar-content h1 {
+        color: white !important;
+        font-size: 1.2rem !important;
+        padding: 1rem !important;
+        margin: 0 !important;
+        background-color: #1e3e2b !important;
+    }
+    
+    /* Sidebar buttons */
+    .sidebar .stButton button {
+        background-color: transparent !important;
+        color: white !important;
+        border: none !important;
+        text-align: left !important;
+        width: 100% !important;
+        padding: 0.75rem 1rem !important;
+        border-radius: 0 !important;
+        font-weight: normal !important;
+    }
+    
+    .sidebar .stButton button:hover {
+        background-color: #3a7259 !important;
+        color: white !important;
+    }
+    
+    /* Sidebar selectbox styling */
+    .sidebar .stSelectbox > div > div {
+        background-color: transparent !important;
+        border: 1px solid #3a7259 !important;
+        color: white !important;
+    }
+    
+    .sidebar .stSelectbox label {
+        color: white !important;
+        font-weight: normal !important;
+    }
+    
+    /* Main content area - clean white like reference */
+    .main .main-content {
+        background-color: #ffffff !important;
+        padding: 2rem !important;
+        min-height: 100vh !important;
+    }
+    
+    /* Top header bar like in reference */
+    .top-header {
+        background-color: #ffffff;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #e0e0e0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: #666;
+        font-size: 0.9rem;
+    }
+    
+    /* Page title styling */
+    .page-title {
+        color: #2B5D42;
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #FF6600;
+        display: inline-block;
+    }
+    
+    /* Content sections */
+    .content-section {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border: 1px solid #e0e0e0;
+    }
+    
+    /* PWC Orange accent buttons */
+    .primary-button {
+        background-color: #FF6600 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 4px !important;
+        font-weight: 600 !important;
+        padding: 0.75rem 1.5rem !important;
+        transition: background-color 0.3s ease !important;
+    }
+    
+    .primary-button:hover {
+        background-color: #e55a00 !important;
+    }
+    
+    /* Secondary button styling */
+    .secondary-button {
+        background-color: transparent !important;
+        color: #2B5D42 !important;
+        border: 2px solid #2B5D42 !important;
+        border-radius: 4px !important;
+        font-weight: 600 !important;
+        padding: 0.75rem 1.5rem !important;
+    }
+    
+    .secondary-button:hover {
+        background-color: #2B5D42 !important;
+        color: white !important;
+    }
+    
+    /* Form input styling */
+    .stSelectbox > div > div, .stDateInput > div > div > input {
+        border: 1px solid #d0d0d0 !important;
+        border-radius: 4px !important;
+        padding: 0.75rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .stSelectbox > div > div:focus-within, .stDateInput > div > div > input:focus {
+        border-color: #FF6600 !important;
+        box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.2) !important;
+    }
+    
+    /* Toggle switch styling like in reference */
+    .stCheckbox > label {
+        color: #333 !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Success messages */
+    .stSuccess {
+        background-color: #E8F5E8 !important;
+        border-left: 4px solid #4CAF50 !important;
+        border-radius: 4px !important;
+        color: #2E7D2E !important;
+    }
+    
+    /* Date range specific styling to match reference */
+    .date-range-container {
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .date-range-header {
+        color: #2B5D42;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .date-field-label {
+        color: #666;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Hide streamlit elements */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    
+    /* Custom navigation menu */
+    .nav-menu {
+        background-color: #2B5D42;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .nav-item {
+        color: white;
+        padding: 1rem;
+        cursor: pointer;
+        border-bottom: 1px solid #3a7259;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .nav-item:hover {
+        background-color: #3a7259;
+    }
+    
+    .nav-item.active {
+        background-color: #FF6600;
+        border-left: 4px solid #e55a00;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Custom sidebar navigation to match reference image
+    with st.sidebar:
+        st.markdown('<div class="nav-menu">', unsafe_allow_html=True)
+        
+        # Dashboard header
+        st.markdown("""
+        <div style="background-color: #1e3e2b; padding: 1rem; color: white; font-weight: 600;">
+            📊 Dashboard
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Navigation items
+        page_options = {
+            "📁 Data Upload": "📁 Solicitudes",
+            "📄 Report Generation": "📄 Reportes", 
+            "👤 Account": "👤 Perfil"
+        }
+        
+        selected_page = None
+        for key, display_name in page_options.items():
+            if st.button(display_name, key=f"nav_{key}", use_container_width=True):
+                selected_page = key
+        
+        # Set default page if none selected
+        if 'current_page' not in st.session_state:
+            st.session_state.current_page = "📄 Report Generation"
+        
+        if selected_page:
+            st.session_state.current_page = selected_page
+        
+        # Bottom section - user info and logout
+        st.markdown("---")
+        st.markdown("**Usuario:** FullName")
+        
+        if st.button("🚪 Cerrar sesión", use_container_width=True):
+            logout()
+        
+        st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Main content area with top header
+    st.markdown("""
+    <div class="top-header">
+        <div class="user-info">
+            <span>🇺🇸 EN</span>
+            <span>👤 FullName</span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     
     # Route to selected page
-    if page == "📁 Data Upload":
+    if st.session_state.current_page == "📁 Data Upload":
         show_data_upload_page()
-    elif page == "📄 Report Generation":
+    elif st.session_state.current_page == "📄 Report Generation":
         show_report_generation_page()
-    elif page == "👤 Account":
+    elif st.session_state.current_page == "👤 Account":
         show_account_page()
 
 def logout():
@@ -135,109 +403,31 @@ def display_validation_results(validation_results):
                 st.error(f"   • {error}")
 
 def show_report_generation_page():
-    """Display the PSUR report generation page"""
+    """Display the PSUR report generation page exactly like the reference image"""
     
-    # PWC Color Scheme CSS - matching the reference UI
-    st.markdown("""
-    <style>
-    /* PWC Brand Colors */
-    .stButton > button {
-        background-color: #E03C31 !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 4px !important;
-        font-weight: 600 !important;
-        transition: background-color 0.3s ease !important;
-        padding: 0.5rem 1rem !important;
-    }
+    # Page title matching reference
+    st.markdown('<div class="page-title">Reportes</div>', unsafe_allow_html=True)
     
-    .stButton > button:hover {
-        background-color: #C02A21 !important;
-        color: white !important;
-    }
-    
-    .stSelectbox > div > div {
-        border-color: #E03C31 !important;
-        border-radius: 4px !important;
-    }
-    
-    .stDateInput > div > div > input {
-        border-color: #E03C31 !important;
-        border-radius: 4px !important;
-        padding: 0.5rem !important;
-    }
-    
-    .stDateInput > label {
-        color: #2C3E50 !important;
-        font-weight: 600 !important;
-        margin-bottom: 0.5rem !important;
-    }
-    
-    .stSuccess {
-        background-color: #F0F8F0 !important;
-        border-left: 4px solid #E03C31 !important;
-        border-radius: 4px !important;
-        padding: 1rem !important;
-    }
-    
-    /* Date range container styling - matching reference UI */
-    .date-range-section {
-        background-color: #F8F9FA;
-        padding: 1.5rem;
-        border-radius: 8px;
-        border: 1px solid #E5E5E5;
-        margin: 1.5rem 0;
-    }
-    
-    .date-header {
-        color: #E03C31 !important;
-        font-weight: 700 !important;
-        font-size: 1.1rem !important;
-        margin-bottom: 1rem !important;
-        display: flex !important;
-        align-items: center !important;
-    }
-    
-    .date-label-custom {
-        color: #2C3E50 !important;
-        font-weight: 600 !important;
-        margin-bottom: 0.5rem !important;
-        font-size: 0.9rem !important;
-    }
-    
-    /* Calendar icon styling */
-    .stDateInput > div > div > div > button {
-        color: #E03C31 !important;
-        border-color: #E03C31 !important;
-    }
-    
-    /* Success message for date range */
-    .date-success {
-        background-color: #E8F5E8;
-        border: 1px solid #4CAF50;
-        border-radius: 4px;
-        padding: 0.75rem;
-        margin: 1rem 0;
-        color: #2E7D2E;
-        font-weight: 500;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-    
-    st.markdown('<h1 class="main-header">📄 PSUR Report Generation</h1>', unsafe_allow_html=True)
+    # Main content section like in reference
+    st.markdown('<div class="content-section">', unsafe_allow_html=True)
+    st.markdown('<h2 style="color: #2B5D42; font-size: 1.4rem; margin-bottom: 1.5rem;">Generar reporte</h2>', unsafe_allow_html=True)
     
     # Check if data is uploaded
     if not st.session_state.uploaded_data:
-        st.warning("⚠️ Please upload and validate data files first before generating reports.")
+        st.markdown("""
+        <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: 4px; padding: 1rem; color: #856404; margin: 1rem 0;">
+            ⚠️ Please upload and validate data files first before generating reports.
+        </div>
+        """, unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
         return
     
-    st.success(f"✅ Data loaded for {len(st.session_state.uploaded_data)} datasets")
+    # Product type selection (matching reference layout)
+    st.markdown('<div class="date-field-label">Tipo de reporte</div>', unsafe_allow_html=True)
     
     # Product selection
     products_df = st.session_state.uploaded_data.get('Products.csv')
     if products_df is not None and not products_df.empty:
-        
-        st.markdown("### 🎯 Select Product for PSUR Generation")
         
         # Product selection dropdown
         product_options = products_df[['ProductID', 'ProductName']].apply(
@@ -245,59 +435,61 @@ def show_report_generation_page():
         ).tolist()
         
         selected_product = st.selectbox(
-            "Choose a product:",
-            options=product_options,
-            help="Select the product for which you want to generate a PSUR report"
+            "Select product type",
+            options=["Select"] + product_options,
+            label_visibility="collapsed"
         )
         
-        if selected_product:
+        if selected_product and selected_product != "Select":
             product_id = selected_product.split(' - ')[0]
             
-            # Date Range Selection Section - Styled like PWC reference UI
-            st.markdown('<div class="date-range-section">', unsafe_allow_html=True)
-            st.markdown('<div class="date-header">📅 Report Date Range</div>', unsafe_allow_html=True)
+            # Date range toggle (exactly like reference)
+            st.markdown('<div style="margin: 1.5rem 0;">', unsafe_allow_html=True)
+            st.markdown('<div class="date-field-label">Reporte por rango de fecha</div>', unsafe_allow_html=True)
             
-            # Create two columns for start and end dates
-            col1, col2 = st.columns(2)
+            # Toggle switch
+            date_range_enabled = st.toggle("", value=True, key="date_range_toggle")
             
-            with col1:
-                st.markdown('<div class="date-label-custom">Start Date</div>', unsafe_allow_html=True)
-                # Default to 1 year ago
-                default_start = datetime.now() - timedelta(days=365)
-                start_date = st.date_input(
-                    "Start date for PSUR period",
-                    value=default_start,
-                    key="start_date",
-                    help="Select the start date for the PSUR reporting period",
-                    label_visibility="collapsed"
-                )
-            
-            with col2:
-                st.markdown('<div class="date-label-custom">End Date</div>', unsafe_allow_html=True)
-                # Default to today
-                default_end = datetime.now()
-                end_date = st.date_input(
-                    "End date for PSUR period",
-                    value=default_end,
-                    key="end_date",
-                    help="Select the end date for the PSUR reporting period",
-                    label_visibility="collapsed"
-                )
-            
-            # Validate date range
-            if start_date > end_date:
-                st.error("⚠️ Start date must be before end date")
-            else:
-                # Show selected date range with custom styling
-                st.markdown(f'''
-                <div class="date-success">
-                    📊 <strong>Report Period:</strong> {start_date.strftime('%d-%b-%Y')} to {end_date.strftime('%d-%b-%Y')}
-                </div>
-                ''', unsafe_allow_html=True)
+            if date_range_enabled:
+                # Date Range Selection Section - exactly like reference layout
+                st.markdown('<div class="date-range-container">', unsafe_allow_html=True)
                 
-                # Store dates in session state
-                st.session_state.report_start_date = start_date
-                st.session_state.report_end_date = end_date
+                # Create two columns for start and end dates exactly like reference
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.markdown('<div class="date-field-label">Fecha inicio</div>', unsafe_allow_html=True)
+                    # Default to 1 year ago
+                    default_start = datetime.now() - timedelta(days=365)
+                    start_date = st.date_input(
+                        "Start date",
+                        value=default_start,
+                        key="start_date",
+                        format="YYYY/MM/DD",
+                        label_visibility="collapsed"
+                    )
+                
+                with col2:
+                    st.markdown('<div class="date-field-label">Fecha final</div>', unsafe_allow_html=True)
+                    # Default to today
+                    default_end = datetime.now()
+                    end_date = st.date_input(
+                        "End date",
+                        value=default_end,
+                        key="end_date",
+                        format="YYYY/MM/DD",
+                        label_visibility="collapsed"
+                    )
+                
+                st.markdown('</div>', unsafe_allow_html=True)
+            else:
+                # Use current date if toggle is off
+                start_date = datetime.now() - timedelta(days=365)
+                end_date = datetime.now()
+            
+            # Store dates in session state
+            st.session_state.report_start_date = start_date
+            st.session_state.report_end_date = end_date
             
             st.markdown('</div>', unsafe_allow_html=True)
             
@@ -310,11 +502,20 @@ def show_report_generation_page():
                     if df is not None and len(df) > 0:
                         st.dataframe(df.head(3))
             
-            # Only show generate button if date range is valid
-            if start_date <= end_date:
-                # Generate report button
-                if st.button("🤖 Generate PSUR Report", type="primary"):
-                    with st.spinner("Generating AI-powered PSUR report..."):
+            # Action buttons exactly like reference layout
+            st.markdown('<div style="margin: 2rem 0; display: flex; gap: 1rem;">', unsafe_allow_html=True)
+            
+            col1, col2 = st.columns([1, 1])
+            with col1:
+                clear_button = st.button("Limpiar", key="clear_btn", use_container_width=True)
+            with col2:
+                generate_button = st.button("Generar reporte", key="generate_btn", use_container_width=True)
+            
+            st.markdown('</div>', unsafe_allow_html=True)
+            
+            # Only proceed if generate button clicked and date range is valid
+            if generate_button and start_date <= end_date:
+                with st.spinner("Generando reporte PSUR..."):
                         try:
                             # Debug: Show what data is being passed
                             debug_data = backend.get_product_data(product_id, st.session_state.uploaded_data)
@@ -330,18 +531,36 @@ def show_report_generation_page():
                             st.session_state.report_product_id = product_id
                             
                             logger.info(f"PSUR report generated for product: {product_id}")
-                            st.success("✅ PSUR report generated successfully!")
+                            st.markdown("""
+                            <div style="background-color: #E8F5E8; border: 1px solid #4CAF50; border-radius: 4px; padding: 1rem; color: #2E7D2E; margin: 1rem 0;">
+                                ✅ Reporte PSUR generado exitosamente
+                            </div>
+                            """, unsafe_allow_html=True)
                             
                         except Exception as e:
                             logger.error(f"Error generating report: {str(e)}")
-                            st.error(f"❌ Error generating report: {str(e)}")
+                            st.markdown(f"""
+                            <div style="background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px; padding: 1rem; color: #721c24; margin: 1rem 0;">
+                                ❌ Error generando reporte: {str(e)}
+                            </div>
+                            """, unsafe_allow_html=True)
+            
+            elif clear_button:
+                # Clear form functionality
+                st.rerun()
             
             # Display generated report
             if 'generated_report' in st.session_state:
                 display_generated_report()
     
     else:
-        st.error("❌ No products data available. Please check your uploaded files.")
+        st.markdown("""
+        <div style="background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px; padding: 1rem; color: #721c24; margin: 1rem 0;">
+            ❌ No hay datos de productos disponibles. Por favor verifique sus archivos cargados.
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown('</div>', unsafe_allow_html=True)  # Close content section
 
 def display_generated_report():
     """Display the generated PSUR report with download options"""
