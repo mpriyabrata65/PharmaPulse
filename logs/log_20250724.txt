@@ -599,3 +599,7 @@
 2025-07-24 09:44:39,593 - utils - INFO - Logging to: logs/log_20250724.txt
 2025-07-24 09:44:39,676 - utils - INFO - Pharma Pulse application started
 2025-07-24 09:44:39,676 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:47:02,231 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:47:02,232 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:47:02,802 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:47:02,802 - utils - INFO - Logging to: logs/log_20250724.txt
