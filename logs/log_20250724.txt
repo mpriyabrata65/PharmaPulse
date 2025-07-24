@@ -603,3 +603,47 @@
 2025-07-24 09:47:02,232 - utils - INFO - Logging to: logs/log_20250724.txt
 2025-07-24 09:47:02,802 - utils - INFO - Pharma Pulse application started
 2025-07-24 09:47:02,802 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:47:31,207 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:47:31,208 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:47:31,212 - login - INFO - Successful login for user: admin
+2025-07-24 09:47:31,278 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:47:31,278 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:47:51,043 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:47:51,043 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:47:55,667 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:47:55,667 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:48:00,125 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:48:00,125 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:48:03,166 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:48:03,166 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:48:07,079 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:48:07,080 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:48:10,430 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:48:10,431 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:48:11,666 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:48:11,667 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:48:11,685 - backend - INFO - Validation completed for Products.csv: Valid
+2025-07-24 09:48:11,688 - backend - INFO - Validation completed for Authorizations.csv: Valid
+2025-07-24 09:48:11,694 - backend - INFO - Validation completed for AdverseEvents.csv: Valid
+2025-07-24 09:48:11,699 - backend - INFO - Validation completed for RegulatoryActions.csv: Valid
+2025-07-24 09:48:11,702 - backend - INFO - Validation completed for ExposureEstimates.csv: Valid
+2025-07-24 09:48:11,704 - backend - INFO - Validation completed for ClinicalStudies.csv: Valid
+2025-07-24 09:48:11,720 - backend - INFO - Products.csv - ProductIDs: ['101', '102']
+2025-07-24 09:48:11,722 - backend - INFO - Products.csv - ProductIDs: ['101', '102']
+2025-07-24 09:48:11,723 - backend - INFO - Products.csv - ProductIDs: ['101', '102']
+2025-07-24 09:48:11,724 - backend - INFO - Processed Products.csv: 2 rows
+2025-07-24 09:48:11,733 - backend - INFO - Processed Authorizations.csv: 4 rows
+2025-07-24 09:48:11,741 - backend - INFO - Processed AdverseEvents.csv: 3 rows
+2025-07-24 09:48:11,747 - backend - INFO - Processed RegulatoryActions.csv: 2 rows
+2025-07-24 09:48:11,752 - backend - INFO - Processed ExposureEstimates.csv: 3 rows
+2025-07-24 09:48:11,763 - backend - INFO - Processed ClinicalStudies.csv: 2 rows
+2025-07-24 09:48:11,765 - psur_app - INFO - All files validated successfully
+2025-07-24 09:49:52,199 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:49:52,200 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:49:52,431 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:49:52,431 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:50:02,042 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:50:02,042 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:50:02,045 - login - INFO - Successful login for user: admin
+2025-07-24 09:50:02,138 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:50:02,139 - utils - INFO - Logging to: logs/log_20250724.txt

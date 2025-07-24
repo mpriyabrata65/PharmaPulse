@@ -7,7 +7,7 @@ Pharma Pulse is a Streamlit web application that automates the generation of PSU
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
-UI Preferences: Fixed sidebar navigation without collapse functionality for consistent access to navigation menu.
+UI Preferences: Clickable sidebar navigation list instead of dropdown menu for easy one-click page access.
 
 ## System Architecture
 

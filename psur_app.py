@@ -23,37 +23,9 @@ def main_app():
     if 'current_page' not in st.session_state:
         st.session_state.current_page = "📁 Data Upload"
     
-    # CSS for fixed sidebar and navigation styling
+    # CSS for navigation styling
     st.markdown("""
     <style>
-    /* Fixed sidebar - disable collapse functionality */
-    .css-1d391kg {
-        position: fixed !important;
-        width: 300px !important;
-        height: 100vh !important;
-        left: 0 !important;
-        top: 0 !important;
-        z-index: 999 !important;
-    }
-    
-    /* Hide sidebar toggle button */
-    .css-14xtw13.e8zbici0 {
-        display: none !important;
-    }
-    
-    /* Adjust main content to accommodate fixed sidebar */
-    .main .main-content {
-        margin-left: 300px !important;
-        padding: 1rem !important;
-    }
-    
-    /* Ensure sidebar content is visible */
-    .sidebar .sidebar-content {
-        padding: 1rem !important;
-        height: 100vh !important;
-        overflow-y: auto !important;
-    }
-    
     /* Navigation styling */
     .nav-item {
         padding: 0.75rem 1rem;
@@ -90,20 +62,6 @@ def main_app():
     
     .stButton > button:hover {
         background-color: #e55a00 !important;
-    }
-    
-    /* Hide Streamlit menu and footer */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    
-    /* Additional sidebar fixes */
-    .css-1rs6os {
-        width: 300px !important;
-    }
-    
-    .css-17ziqus {
-        margin-left: 300px !important;
     }
     </style>
     """, unsafe_allow_html=True)
