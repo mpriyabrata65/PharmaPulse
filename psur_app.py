@@ -15,31 +15,97 @@ logger = logging.getLogger(__name__)
 def main_app():
     """Main application after successful login"""
     
-    # Sidebar navigation
+    # Sidebar navigation with clickable list
     st.sidebar.title("📊 Pharma Pulse")
     st.sidebar.markdown("---")
     
-    # Navigation menu
-    page = st.sidebar.selectbox(
-        "Navigate to:",
-        ["📁 Data Upload", "📄 Report Generation", "👤 Account"]
-    )
+    # Initialize current page in session state if not exists
+    if 'current_page' not in st.session_state:
+        st.session_state.current_page = "📄 Report Generation"
     
-    # Logout button
-    if st.sidebar.button("🚪 Logout", type="secondary"):
+    # CSS for navigation styling
+    st.markdown("""
+    <style>
+    /* Sidebar navigation styling */
+    .nav-item {
+        padding: 0.75rem 1rem;
+        margin: 0.25rem 0;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        background: transparent;
+        width: 100%;
+        text-align: left;
+        color: inherit;
+        font-size: 0.9rem;
+    }
+    
+    .nav-item:hover {
+        background-color: #f0f2f6;
+        color: #FF6600;
+    }
+    
+    .nav-item.active {
+        background-color: #FF6600;
+        color: white;
+        font-weight: 600;
+    }
+    
+    .stButton > button {
+        background-color: #FF6600 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 4px !important;
+        font-weight: 600 !important;
+    }
+    
+    .stButton > button:hover {
+        background-color: #e55a00 !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Navigation menu with clickable buttons
+    st.sidebar.markdown("**Navigation:**")
+    
+    # Data Upload page button
+    if st.sidebar.button("📁 Data Upload", key="nav_data_upload", 
+                        type="primary" if st.session_state.current_page == "📁 Data Upload" else "secondary",
+                        use_container_width=True):
+        st.session_state.current_page = "📁 Data Upload"
+        st.rerun()
+    
+    # Report Generation page button
+    if st.sidebar.button("📄 Report Generation", key="nav_report_gen",
+                        type="primary" if st.session_state.current_page == "📄 Report Generation" else "secondary", 
+                        use_container_width=True):
+        st.session_state.current_page = "📄 Report Generation"
+        st.rerun()
+    
+    # Account page button
+    if st.sidebar.button("👤 Account", key="nav_account",
+                        type="primary" if st.session_state.current_page == "👤 Account" else "secondary",
+                        use_container_width=True):
+        st.session_state.current_page = "👤 Account"
+        st.rerun()
+    
+    # Logout section
+    st.sidebar.markdown("---")
+    if st.sidebar.button("🚪 Logout", type="secondary", use_container_width=True):
         logout()
     
-    # Display current user
+    # Display current user info
     st.sidebar.markdown("---")
     st.sidebar.markdown("**Logged in as:** admin")
-    st.sidebar.markdown(f"**Session started:** {datetime.now().strftime('%d-%b-%Y %H:%M')}")
+    st.sidebar.markdown(f"**Session:** {datetime.now().strftime('%d-%b-%Y %H:%M')}")
     
-    # Route to selected page
-    if page == "📁 Data Upload":
+    # Route to selected page based on session state
+    if st.session_state.current_page == "📁 Data Upload":
         show_data_upload_page()
-    elif page == "📄 Report Generation":
+    elif st.session_state.current_page == "📄 Report Generation":
         show_report_generation_page()
-    elif page == "👤 Account":
+    elif st.session_state.current_page == "👤 Account":
         show_account_page()
 
 def logout():
@@ -47,6 +113,7 @@ def logout():
     st.session_state.authenticated = False
     st.session_state.uploaded_data = {}
     st.session_state.validation_results = {}
+    st.session_state.current_page = "📄 Report Generation"  # Reset to default page
     logger.info("User logged out")
     st.rerun()
 
