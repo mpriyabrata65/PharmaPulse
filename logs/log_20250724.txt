@@ -1,2 +1,162 @@
 2025-07-24 08:23:59,168 - utils - INFO - Pharma Pulse application started
 2025-07-24 08:23:59,169 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:25:28,964 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:25:28,965 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:25:28,969 - login - INFO - Successful login for user: admin
+2025-07-24 08:25:29,069 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:25:29,070 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:27:39,407 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:27:39,408 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:27:46,103 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:27:46,103 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:27:50,900 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:27:50,900 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:27:57,056 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:27:57,056 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:28:03,306 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:28:03,307 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:28:18,783 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:28:18,784 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:28:21,252 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:28:21,253 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:28:21,268 - backend - INFO - Validation completed for Products.csv: Valid
+2025-07-24 08:28:21,271 - backend - INFO - Validation completed for Authorizations.csv: Valid
+2025-07-24 08:28:21,274 - backend - INFO - Validation completed for AdverseEvents.csv: Valid
+2025-07-24 08:28:21,277 - backend - INFO - Validation completed for RegulatoryActions.csv: Invalid
+2025-07-24 08:28:21,280 - backend - ERROR - Error validating ExposureEstimates.csv: '<' not supported between instances of 'str' and 'int'
+2025-07-24 08:28:21,281 - backend - INFO - Validation completed for ClinicalStudies.csv: Valid
+2025-07-24 08:30:38,260 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:30:38,261 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:30:40,842 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:30:40,843 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:30:40,853 - backend - INFO - Validation completed for Products.csv: Valid
+2025-07-24 08:30:40,856 - backend - INFO - Validation completed for Authorizations.csv: Valid
+2025-07-24 08:30:40,860 - backend - INFO - Validation completed for AdverseEvents.csv: Valid
+2025-07-24 08:30:40,864 - backend - INFO - Validation completed for RegulatoryActions.csv: Valid
+2025-07-24 08:30:40,868 - backend - ERROR - Error validating ExposureEstimates.csv: '<' not supported between instances of 'str' and 'int'
+2025-07-24 08:30:40,869 - backend - INFO - Validation completed for ClinicalStudies.csv: Valid
+2025-07-24 08:30:50,550 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:30:50,551 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:30:51,726 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:30:51,727 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:30:51,738 - backend - INFO - Validation completed for Products.csv: Valid
+2025-07-24 08:30:51,741 - backend - INFO - Validation completed for Authorizations.csv: Valid
+2025-07-24 08:30:51,745 - backend - INFO - Validation completed for AdverseEvents.csv: Valid
+2025-07-24 08:30:51,748 - backend - INFO - Validation completed for RegulatoryActions.csv: Valid
+2025-07-24 08:30:51,751 - backend - ERROR - Error validating ExposureEstimates.csv: '<' not supported between instances of 'str' and 'int'
+2025-07-24 08:30:51,754 - backend - INFO - Validation completed for ClinicalStudies.csv: Valid
+2025-07-24 08:34:19,557 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:34:19,558 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:34:20,757 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:34:20,757 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:34:20,767 - backend - INFO - Validation completed for Products.csv: Valid
+2025-07-24 08:34:20,770 - backend - INFO - Validation completed for Authorizations.csv: Valid
+2025-07-24 08:34:20,773 - backend - INFO - Validation completed for AdverseEvents.csv: Valid
+2025-07-24 08:34:20,777 - backend - INFO - Validation completed for RegulatoryActions.csv: Valid
+2025-07-24 08:34:20,780 - backend - INFO - Validation completed for ExposureEstimates.csv: Valid
+2025-07-24 08:34:20,782 - backend - INFO - Validation completed for ClinicalStudies.csv: Valid
+2025-07-24 08:34:20,789 - backend - INFO - Processed Products.csv: 2 rows
+2025-07-24 08:34:20,796 - backend - INFO - Processed Authorizations.csv: 4 rows
+2025-07-24 08:34:20,804 - backend - INFO - Processed AdverseEvents.csv: 3 rows
+2025-07-24 08:34:20,809 - backend - INFO - Processed RegulatoryActions.csv: 2 rows
+2025-07-24 08:34:20,813 - backend - INFO - Processed ExposureEstimates.csv: 3 rows
+2025-07-24 08:34:20,817 - backend - INFO - Processed ClinicalStudies.csv: 2 rows
+2025-07-24 08:34:20,818 - psur_app - INFO - All files validated successfully
+2025-07-24 08:34:45,153 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:34:45,154 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:34:45,174 - backend - INFO - Validation completed for Products.csv: Valid
+2025-07-24 08:34:45,177 - backend - INFO - Validation completed for Authorizations.csv: Valid
+2025-07-24 08:34:45,186 - backend - INFO - Validation completed for AdverseEvents.csv: Valid
+2025-07-24 08:34:45,190 - backend - INFO - Validation completed for RegulatoryActions.csv: Valid
+2025-07-24 08:34:45,193 - backend - INFO - Validation completed for ExposureEstimates.csv: Valid
+2025-07-24 08:34:45,195 - backend - INFO - Validation completed for ClinicalStudies.csv: Valid
+2025-07-24 08:34:45,204 - backend - INFO - Processed Products.csv: 2 rows
+2025-07-24 08:34:45,210 - backend - INFO - Processed Authorizations.csv: 4 rows
+2025-07-24 08:34:45,220 - backend - INFO - Processed AdverseEvents.csv: 3 rows
+2025-07-24 08:34:45,227 - backend - INFO - Processed RegulatoryActions.csv: 2 rows
+2025-07-24 08:34:45,234 - backend - INFO - Processed ExposureEstimates.csv: 3 rows
+2025-07-24 08:34:45,240 - backend - INFO - Processed ClinicalStudies.csv: 2 rows
+2025-07-24 08:34:45,243 - psur_app - INFO - All files validated successfully
+2025-07-24 08:34:52,227 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:34:52,228 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:35:00,683 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:35:00,684 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:35:01,698 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:35:01,699 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:35:01,705 - report_generator - INFO - Starting PSUR report generation for product: 102
+2025-07-24 08:35:02,929 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:35:02,930 - openai._base_client - INFO - Retrying request to /chat/completions in 0.489050 seconds
+2025-07-24 08:35:03,683 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:35:03,684 - openai._base_client - INFO - Retrying request to /chat/completions in 0.755013 seconds
+2025-07-24 08:35:10,402 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:35:10,406 - report_generator - ERROR - Error calling OpenAI API: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-07-24 08:35:10,406 - report_generator - INFO - Fallback report generated for product: 102
+2025-07-24 08:35:10,406 - report_generator - INFO - PSUR report generated successfully for product: 102
+2025-07-24 08:35:10,408 - psur_app - INFO - PSUR report generated for product: 102
+2025-07-24 08:35:31,074 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:35:31,074 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:35:31,185 - docx_pdf_exporter - INFO - DOCX report generated: output/PSUR_Report_102_20250724_083531.docx
+2025-07-24 08:35:31,189 - psur_app - INFO - DOCX report generated for product: 102
+2025-07-24 08:35:34,253 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:35:34,254 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:36:04,809 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:36:04,809 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:36:06,133 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:36:06,134 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:36:06,140 - report_generator - INFO - Starting PSUR report generation for product: 101
+2025-07-24 08:36:06,540 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:36:06,540 - openai._base_client - INFO - Retrying request to /chat/completions in 0.435394 seconds
+2025-07-24 08:36:07,065 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:36:07,066 - openai._base_client - INFO - Retrying request to /chat/completions in 0.769821 seconds
+2025-07-24 08:36:07,933 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:36:07,934 - report_generator - ERROR - Error calling OpenAI API: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-07-24 08:36:07,934 - report_generator - INFO - Fallback report generated for product: 101
+2025-07-24 08:36:07,935 - report_generator - INFO - PSUR report generated successfully for product: 101
+2025-07-24 08:36:07,935 - psur_app - INFO - PSUR report generated for product: 101
+2025-07-24 08:49:45,867 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:49:45,867 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:49:54,414 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:49:54,414 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:49:59,242 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:49:59,242 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:50:00,795 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:50:00,795 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:50:00,800 - report_generator - INFO - Starting PSUR report generation for product: 101
+2025-07-24 08:50:01,369 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:50:01,369 - openai._base_client - INFO - Retrying request to /chat/completions in 0.465091 seconds
+2025-07-24 08:50:01,958 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:50:01,959 - openai._base_client - INFO - Retrying request to /chat/completions in 0.782471 seconds
+2025-07-24 08:50:03,915 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:50:03,916 - report_generator - ERROR - Error calling OpenAI API: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-07-24 08:50:03,917 - report_generator - INFO - Fallback report generated for product: 101
+2025-07-24 08:50:03,918 - report_generator - INFO - PSUR report generated successfully for product: 101
+2025-07-24 08:50:03,919 - psur_app - INFO - PSUR report generated for product: 101
+2025-07-24 08:50:33,321 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:50:33,322 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:50:34,987 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:50:34,987 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:50:34,993 - report_generator - INFO - Starting PSUR report generation for product: 102
+2025-07-24 08:50:35,376 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:50:35,377 - openai._base_client - INFO - Retrying request to /chat/completions in 0.490287 seconds
+2025-07-24 08:50:35,500 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:50:35,500 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:50:35,506 - report_generator - INFO - Starting PSUR report generation for product: 102
+2025-07-24 08:50:35,600 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:50:35,601 - openai._base_client - INFO - Retrying request to /chat/completions in 0.454725 seconds
+2025-07-24 08:50:35,970 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:50:35,971 - openai._base_client - INFO - Retrying request to /chat/completions in 0.774395 seconds
+2025-07-24 08:50:36,388 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:50:36,388 - openai._base_client - INFO - Retrying request to /chat/completions in 0.784403 seconds
+2025-07-24 08:50:36,841 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:50:36,843 - report_generator - ERROR - Error calling OpenAI API: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-07-24 08:50:36,843 - report_generator - INFO - Fallback report generated for product: 102
+2025-07-24 08:50:36,844 - report_generator - INFO - PSUR report generated successfully for product: 102
+2025-07-24 08:50:37,315 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-07-24 08:50:37,317 - report_generator - ERROR - Error calling OpenAI API: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-07-24 08:50:37,317 - report_generator - INFO - Fallback report generated for product: 102
+2025-07-24 08:50:37,318 - report_generator - INFO - PSUR report generated successfully for product: 102
+2025-07-24 08:50:37,319 - psur_app - INFO - PSUR report generated for product: 102
+2025-07-24 08:59:29,584 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:59:29,584 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 08:59:30,488 - utils - INFO - Pharma Pulse application started
+2025-07-24 08:59:30,488 - utils - INFO - Logging to: logs/log_20250724.txt

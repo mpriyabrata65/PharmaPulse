@@ -194,6 +194,9 @@ def clean_dataframe(df: pd.DataFrame, file_name: str) -> pd.DataFrame:
         # Ensure ProductID is treated as string
         if 'ProductID' in df.columns:
             df['ProductID'] = df['ProductID'].astype(str)
+            logger.info(f"Products.csv - ProductIDs: {df['ProductID'].unique().tolist()}")
+            logger.info(f"Products.csv - ProductIDs: {df['ProductID'].unique().tolist()}")
+            logger.info(f"Products.csv - ProductIDs: {df['ProductID'].unique().tolist()}")
     
     elif file_name == 'AdverseEvents.csv':
         # Clean age column
@@ -242,8 +245,11 @@ def get_product_data(product_id: str, data: Dict[str, pd.DataFrame]) -> Dict[str
     try:
         # Get product information
         if 'Products.csv' in data:
-            product_info = data['Products.csv'][data['Products.csv']['ProductID'] == product_id]
+            # Ensure ProductID is string for comparison
+            data['Products.csv']['ProductID'] = data['Products.csv']['ProductID'].astype(str)
+            product_info = data['Products.csv'][data['Products.csv']['ProductID'] == str(product_id)]
             product_data['Products.csv'] = product_info
+            logger.info(f"Filtered Products.csv for product {product_id}: {len(product_info)} rows")
         
         # Get related data for this product
         product_related_files = [
@@ -253,8 +259,11 @@ def get_product_data(product_id: str, data: Dict[str, pd.DataFrame]) -> Dict[str
         
         for file_name in product_related_files:
             if file_name in data:
-                filtered_df = data[file_name][data[file_name]['ProductID'] == product_id]
+                # Ensure ProductID is string for comparison
+                data[file_name]['ProductID'] = data[file_name]['ProductID'].astype(str)
+                filtered_df = data[file_name][data[file_name]['ProductID'] == str(product_id)]
                 product_data[file_name] = filtered_df
+                logger.info(f"Filtered {file_name} for product {product_id}: {len(filtered_df)} rows")
         
         logger.info(f"Extracted data for product {product_id}")
         

@@ -166,10 +166,23 @@ def show_report_generation_page():
         if selected_product:
             product_id = selected_product.split(' - ')[0]
             
+            # Debug information
+            with st.expander("🔍 Debug Information", expanded=False):
+                st.markdown("**Product Data Summary:**")
+                product_debug_data = backend.get_product_data(product_id, st.session_state.uploaded_data)
+                for file_name, df in product_debug_data.items():
+                    st.markdown(f"- **{file_name}:** {len(df) if df is not None else 0} rows")
+                    if df is not None and len(df) > 0:
+                        st.dataframe(df.head(3))
+            
             # Generate report button
             if st.button("🤖 Generate PSUR Report", type="primary"):
                 with st.spinner("Generating AI-powered PSUR report..."):
                     try:
+                        # Debug: Show what data is being passed
+                        debug_data = backend.get_product_data(product_id, st.session_state.uploaded_data)
+                        logger.info(f"Generating report for product {product_id} with data: {[(k, len(v) if v is not None else 0) for k, v in debug_data.items()]}")
+                        
                         # Generate the report
                         report_content = report_generator.generate_psur_report(
                             product_id, 

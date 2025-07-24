@@ -79,6 +79,10 @@ def prepare_data_summary(product_data: Dict[str, pd.DataFrame]) -> Dict[str, Any
     summary = {}
     
     try:
+        # Debug logging
+        logger.info(f"Preparing data summary for product data keys: {list(product_data.keys())}")
+        for key, df in product_data.items():
+            logger.info(f"Data for {key}: {len(df) if df is not None else 0} rows")
         # Product information
         if 'Products' in product_data and not product_data['Products'].empty:
             product_info = product_data['Products'].iloc[0]
@@ -216,14 +220,19 @@ Format the output in clean markdown with proper headers, tables, and formatting.
         report_content = response.choices[0].message.content
         
         # Post-process the report
-        final_report = post_process_report(report_content, data_summary)
+        final_report = post_process_report(report_content or "", data_summary)
         
         return final_report
         
     except Exception as e:
         logger.error(f"Error calling OpenAI API: {str(e)}")
-        # Fallback to template-based report
-        return generate_fallback_report(product_id, data_summary, product_data)
+        # Check if it's a quota issue and provide specific message
+        if "quota" in str(e).lower() or "429" in str(e):
+            logger.info("OpenAI quota exceeded, using enhanced fallback report with actual data")
+            return generate_enhanced_fallback_report(product_id, data_summary, product_data)
+        else:
+            # For other errors, use standard fallback
+            return generate_fallback_report(product_id, data_summary, product_data)
 
 def create_psur_prompt(product_id: str, data_summary: Dict[str, Any], product_data: Dict[str, pd.DataFrame]) -> str:
     """Create a detailed prompt for AI-powered PSUR generation"""
@@ -445,3 +454,232 @@ This report provides a summary of available safety data for {product_name}.
     except Exception as e:
         logger.error(f"Error generating fallback report: {str(e)}")
         return f"Error generating report for product {product_id}. Please check the logs for details."
+
+def generate_enhanced_fallback_report(product_id: str, data_summary: Dict[str, Any], product_data: Dict[str, pd.DataFrame]) -> str:
+    """Generate an enhanced fallback report using actual data when OpenAI quota is exceeded"""
+    
+    try:
+        product_info = data_summary.get('product', {})
+        product_name = product_info.get('name', 'Unknown Product')
+        timestamp = datetime.now().strftime("%d-%b-%Y")
+        
+        # Get actual data statistics
+        ae_data = data_summary.get('adverse_events', {})
+        auth_data = data_summary.get('authorizations', {})
+        exposure_data = data_summary.get('exposure', {})
+        studies_data = data_summary.get('clinical_studies', {})
+        reg_actions_data = data_summary.get('regulatory_actions', {})
+        
+        enhanced_report = f"""
+# PSUR Report - {product_name} (ID: {product_id})
+**Report Generated:** {timestamp}
+**Compliance:** Indian CDSCO Standards & ICH E2C(R2)
+
+---
+
+## Executive Summary
+
+This PSUR report has been generated for **{product_name}** (Product ID: {product_id}) based on actual uploaded data. The AI-powered analysis is temporarily unavailable due to service quotas, but this report contains all your real data.
+
+**Key Safety Statistics:**
+- **Total Adverse Events:** {ae_data.get('total_events', 0)}
+- **Authorized Countries:** {auth_data.get('total_countries', 0)}
+- **Estimated Patient Exposure:** {exposure_data.get('total_estimated_patients', 0):,}
+- **Clinical Studies:** {studies_data.get('total_studies', 0)}
+- **Regulatory Actions:** {reg_actions_data.get('total_actions', 0)}
+
+## 1. Title Page
+
+**Product Name:** {product_name}
+**Product ID:** {product_id}
+**INN:** {product_info.get('inn', 'N/A')}
+**Dosage Form:** {product_info.get('dosage_form', 'N/A')}
+**Strength:** {product_info.get('strength', 'N/A')}
+**PSUR Period:** {timestamp}
+**Reporting Company:** Pharma Pulse System
+
+## 2. Executive Summary
+
+This report summarizes the safety profile of {product_name} based on data from {auth_data.get('total_countries', 0)} countries where the product is authorized.
+
+**Key Findings:**
+- Total adverse events reported: {ae_data.get('total_events', 0)}
+- Patient exposure estimated at: {exposure_data.get('total_estimated_patients', 0):,} patients
+- Regulatory actions taken: {reg_actions_data.get('total_actions', 0)}
+
+## 3. Introduction
+
+**Product:** {product_name} ({product_info.get('inn', 'N/A')})
+**Dosage Form:** {product_info.get('dosage_form', 'N/A')}
+**Strength:** {product_info.get('strength', 'N/A')}
+
+The product is currently authorized in {auth_data.get('total_countries', 0)} countries worldwide.
+
+## 4. Worldwide Marketing Authorization Status
+
+**Total Authorized Countries:** {auth_data.get('total_countries', 0)}
+
+**Countries with Authorization:**"""
+
+        # Add country list if available
+        if auth_data.get('countries'):
+            for country in auth_data.get('countries', []):
+                enhanced_report += f"\n- {country}"
+        else:
+            enhanced_report += "\n- Data not available"
+
+        enhanced_report += f"""
+
+**Marketing Status Distribution:**"""
+
+        # Add marketing status distribution
+        if auth_data.get('marketing_statuses'):
+            for status, count in auth_data.get('marketing_statuses', {}).items():
+                enhanced_report += f"\n- {status}: {count}"
+        else:
+            enhanced_report += "\n- Data not available"
+
+        enhanced_report += f"""
+
+## 5. Update on Actions Taken for Safety Reasons
+
+**Total Regulatory Actions:** {reg_actions_data.get('total_actions', 0)}
+
+**Action Types:**"""
+
+        # Add action types if available
+        if reg_actions_data.get('action_types'):
+            for action, count in reg_actions_data.get('action_types', {}).items():
+                enhanced_report += f"\n- {action}: {count} action(s)"
+        else:
+            enhanced_report += "\n- No regulatory actions reported"
+
+        enhanced_report += f"""
+
+## 6. Changes to Reference Safety Information
+
+Based on the adverse events data, {"no significant safety signals were identified" if ae_data.get('total_events', 0) < 3 else "adverse event patterns require clinical evaluation"}.
+
+## 7. Estimated Patient Exposure
+
+**Total Estimated Patients:** {exposure_data.get('total_estimated_patients', 0):,}
+
+**Regional Distribution:**"""
+
+        # Add regional exposure if available
+        if exposure_data.get('regions'):
+            for region in exposure_data.get('regions', []):
+                enhanced_report += f"\n- {region}"
+        else:
+            enhanced_report += "\n- Regional data not available"
+
+        enhanced_report += f"""
+
+**Estimation Methods:**"""
+
+        # Add estimation methods if available  
+        if exposure_data.get('estimation_methods'):
+            for method, count in exposure_data.get('estimation_methods', {}).items():
+                enhanced_report += f"\n- {method}: {count} estimate(s)"
+        else:
+            enhanced_report += "\n- Estimation methodology not specified"
+
+        enhanced_report += f"""
+
+## 8. Presentation of Individual Case Histories
+
+**Total Adverse Events:** {ae_data.get('total_events', 0)}
+
+**Outcome Distribution:**"""
+
+        # Add outcome distribution
+        if ae_data.get('outcomes'):
+            for outcome, count in ae_data.get('outcomes', {}).items():
+                enhanced_report += f"\n- {outcome}: {count} case(s)"
+        else:
+            enhanced_report += "\n- No adverse events reported"
+
+        enhanced_report += f"""
+
+**Age Distribution:**"""
+
+        # Add age distribution
+        if ae_data.get('age_distribution', {}).get('age_ranges'):
+            for age_range, count in ae_data.get('age_distribution', {}).get('age_ranges', {}).items():
+                enhanced_report += f"\n- {age_range}: {count} case(s)"
+        else:
+            enhanced_report += "\n- Age distribution data not available"
+
+        enhanced_report += f"""
+
+**Gender Distribution:**"""
+
+        # Add gender distribution
+        if ae_data.get('gender_distribution'):
+            for gender, count in ae_data.get('gender_distribution', {}).items():
+                enhanced_report += f"\n- {gender}: {count} case(s)"
+        else:
+            enhanced_report += "\n- Gender distribution data not available"
+
+        enhanced_report += f"""
+
+## 9. Studies
+
+**Total Clinical Studies:** {studies_data.get('total_studies', 0)}
+**Completed Studies:** {studies_data.get('completed_studies', 0)}
+
+**Study Status Distribution:**"""
+
+        # Add study statuses
+        if studies_data.get('study_statuses'):
+            for status, count in studies_data.get('study_statuses', {}).items():
+                enhanced_report += f"\n- {status}: {count} study/studies"
+        else:
+            enhanced_report += "\n- No clinical studies data available"
+
+        enhanced_report += f"""
+
+## 10. Other Information
+
+**Recent Events (2023+):** {ae_data.get('recent_events', 0)} adverse events
+**Recent Actions (2023+):** {reg_actions_data.get('recent_actions', 0)} regulatory actions
+
+Additional safety information from literature review and post-marketing surveillance would be included in a complete assessment.
+
+## 11. Overall Safety Evaluation
+
+Based on the available data:
+
+- **Adverse Event Rate:** {ae_data.get('total_events', 0)} events reported from {exposure_data.get('total_estimated_patients', 0):,} exposed patients
+- **Regulatory Oversight:** {reg_actions_data.get('total_actions', 0)} regulatory actions taken
+- **Study Evidence:** {studies_data.get('completed_studies', 0)} completed clinical studies available
+
+{'**Assessment:** The safety profile appears acceptable based on current data.' if ae_data.get('total_events', 0) < 10 else '**Assessment:** Detailed clinical review recommended due to adverse event volume.'}
+
+## 12. Conclusion and Appendices
+
+**Summary:**
+- Product is authorized in {auth_data.get('total_countries', 0)} countries
+- {ae_data.get('total_events', 0)} adverse events reported from {exposure_data.get('total_estimated_patients', 0):,} patients
+- {reg_actions_data.get('total_actions', 0)} regulatory actions implemented
+- {studies_data.get('total_studies', 0)} clinical studies on record
+
+**Recommendation:** Continue monitoring safety profile with regular PSUR updates as per regulatory requirements.
+
+---
+
+**Report Generation Information:**
+- Generated by: Pharma Pulse System (Enhanced Data Mode)
+- Date: {timestamp}
+- Standards: CDSCO & ICH E2C(R2)
+- Data Source: User-uploaded CSV files (actual data)
+
+*Note: This report uses your actual uploaded data. AI-enhanced analysis will be available once OpenAI service quotas are restored.*
+"""
+        
+        logger.info(f"Enhanced fallback report generated for product: {product_id}")
+        return enhanced_report
+        
+    except Exception as e:
+        logger.error(f"Error generating enhanced fallback report: {str(e)}")
+        return generate_fallback_report(product_id, data_summary, product_data)
