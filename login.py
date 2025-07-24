@@ -31,7 +31,8 @@ def show_login_page():
         if submit_button:
             if authenticate_user(username, password):
                 st.session_state.authenticated = True
-                st.session_state.current_page = 'main'
+                st.session_state.current_page = "📁 Data Upload"  # Set initial page to Data Upload
+                st.session_state.username = username
                 logger.info(f"Successful login for user: {username}")
                 st.success("✅ Login successful! Redirecting...")
                 st.rerun()

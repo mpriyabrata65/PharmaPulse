@@ -21,7 +21,7 @@ def main_app():
     
     # Initialize current page in session state if not exists
     if 'current_page' not in st.session_state:
-        st.session_state.current_page = "📄 Report Generation"
+        st.session_state.current_page = "📁 Data Upload"
     
     # CSS for navigation styling
     st.markdown("""
@@ -113,7 +113,7 @@ def logout():
     st.session_state.authenticated = False
     st.session_state.uploaded_data = {}
     st.session_state.validation_results = {}
-    st.session_state.current_page = "📄 Report Generation"  # Reset to default page
+    st.session_state.current_page = "📁 Data Upload"  # Reset to default page
     logger.info("User logged out")
     st.rerun()
 
