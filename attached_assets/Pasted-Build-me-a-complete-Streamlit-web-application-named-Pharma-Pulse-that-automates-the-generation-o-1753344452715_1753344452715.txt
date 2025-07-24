@@ -1,0 +1,191 @@
+Build me a complete Streamlit web application named **Pharma Pulse** that automates the generation of PSUR (Periodic Safety Update Reports) in compliance with Indian CDSCO pharmacovigilance standards. Follow the instructions carefully:
+
+---
+
+📌 APP OVERVIEW:
+
+Build a **3-page application** with the following structure:
+
+1. **Login Page** (authentication with hardcoded credentials)
+2. **Data Upload Page** (upload & validate 6 normalized CSVs)
+3. **Report Page** (preview & download AI-generated PSURs)
+
+---
+
+🔐 PAGE 1: LOGIN PAGE
+
+- Show app name: **"Welcome to Pharma Pulse"** at top in bold PwC style
+- Use PwC-style branding:
+
+    - Background: `#F1F1F1`
+    - Text: `#333333`
+    - Primary Red: `#E03C31`
+    - Accent Yellow: `#FFB612`
+
+- Center a login card with:
+  - Username (text input)
+  - Password (masked)
+  - Submit button
+
+- Hardcoded credentials:
+  - Username: `admin`
+  - Password: `pwc@123`
+
+- On successful login:
+  - Call `main_app()` from `psur_app.py`
+
+- On failure:
+  - Show `st.error("Invalid username or password")`
+
+---
+
+📁 PAGE 2: DATA UPLOAD PAGE
+
+Allow uploading of the following **six CSV files**:
+
+1. `Products.csv`
+2. `Authorizations.csv`
+3. `AdverseEvents.csv`
+4. `RegulatoryActions.csv`
+5. `ExposureEstimates.csv`
+6. `ClinicalStudies.csv`
+
+🔎 Each file must be validated against these schemas:
+
+```plaintext
+Products.csv: ProductID, ProductName, INN, DosageForm, Strength
+
+Authorizations.csv: AuthorizationID, ProductID, Country, MarketingStatus, AuthorizationDate, LicenseNumber
+
+AdverseEvents.csv: AEID, ProductID, ReportedDate, PatientAge, Gender, EventDescription, Outcome
+
+RegulatoryActions.csv: ActionID, ProductID, ActionDate, Region, ActionTaken, Justification
+
+ExposureEstimates.csv: ExposureID, ProductID, Region, TimePeriod, EstimatedPatients, EstimationMethod
+
+ClinicalStudies.csv: StudyID, ProductID, StudyTitle, Status, CompletionDate
+✅ Check for missing columns, nulls, and join keys (e.g., ProductID)
+
+✅ Store cleaned DataFrames in st.session_state to reuse in reporting
+
+📄 PAGE 3: PSUR REPORT PAGE
+
+Use an AI-powered agent to generate a PSUR per product using the uploaded data.
+
+🧠 Prompt for Agent:
+
+"You are a PSUR report generation assistant. Given structured CSV data from the six datasets, generate a complete PSUR for each product. Follow Indian CDSCO guidance and include the 12 ICH E2C(R2) sections below:"
+
+Title Page
+
+Executive Summary
+
+Introduction
+
+Worldwide Marketing Authorization Status
+
+Update on Actions Taken for Safety Reasons
+
+Changes to Reference Safety Information
+
+Estimated Patient Exposure
+
+Presentation of Individual Case Histories
+
+Studies
+
+Other Information
+
+Overall Safety Evaluation
+
+Conclusion and Appendices
+
+✅ Join datasets by ProductID
+
+✅ Format output in readable Markdown with:
+
+Tables (for summaries)
+
+Clear headers
+
+Dates formatted as DD-MMM-YYYY
+
+"Data not available" where needed
+
+Highlight adverse event trends if ≥3 events
+
+📤 EXPORT + PREVIEW
+
+At bottom of Report Page:
+
+Show AI-generated PSUR in readable markdown (st.markdown)
+
+Provide download buttons using st.download_button for:
+
+✅ Download Word (.docx)
+
+✅ Download PDF (.pdf)
+
+Use python-docx for Word generation and reportlab or pdfkit for PDF export.
+
+📊 OPTIONAL PREVIEW SECTION
+
+Include an expandable section with:
+
+📈 AE Summary (table + pie chart of Outcome)
+
+📊 Exposure Summary (table + bar chart by Region)
+
+📌 Any charts as matplotlib PNGs stored in /output folder
+
+📁 PROJECT STRUCTURE
+
+Please generate and separate the code into these files:
+
+plaintext
+Copy
+Edit
+/PharmaPulse
+├── app.py                # Root file that handles routing and state
+├── login.py              # Login UI
+├── psur_app.py           # Main application after login
+├── backend.py            # File/data validation + session handling
+├── report_generator.py   # AI logic to generate PSUR markdown
+├── docx_pdf_exporter.py  # Word/PDF file generation logic
+├── utils.py              # Any helpers, like chart creators
+├── /output               # All exported files go here
+├── /logs                 # Log generation
+└── requirements.txt      # Dependencies for Streamlit, pandas, python-docx, etc.
+📌 Also include:
+
+Logging using Python's logging module with rotating logs
+
+Store logs under /logs/log_YYYYMMDD.txt
+
+📛 Name the app: Pharma Pulse
+
+Update the title on the Login Page and Main App
+
+Add st.set_page_config(page_title="Pharma Pulse", layout="wide") in app.py
+
+✅ Ensure the code works in Replit, handles state well, and includes error messages where needed.
+
+🚀 Build now and scaffold all required files + code!
+
+yaml
+Copy
+Edit
+
+---
+
+### ✅ What This Will Do
+
+Feeding this prompt into Replit's Chat (or GPT) will:
+- Build your **entire Streamlit app**
+- Break it down into proper files
+- Style it in **PwC's theme**
+- Enable full CSV validation, session state, login flow
+- Use **AI agents to generate PSURs** in CDSCO structure
+- Add export options for PDF/DOCX and charts
+
+---
