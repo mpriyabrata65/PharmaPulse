@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 
 # Import our modules
@@ -137,6 +137,93 @@ def display_validation_results(validation_results):
 def show_report_generation_page():
     """Display the PSUR report generation page"""
     
+    # PWC Color Scheme CSS - matching the reference UI
+    st.markdown("""
+    <style>
+    /* PWC Brand Colors */
+    .stButton > button {
+        background-color: #E03C31 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 4px !important;
+        font-weight: 600 !important;
+        transition: background-color 0.3s ease !important;
+        padding: 0.5rem 1rem !important;
+    }
+    
+    .stButton > button:hover {
+        background-color: #C02A21 !important;
+        color: white !important;
+    }
+    
+    .stSelectbox > div > div {
+        border-color: #E03C31 !important;
+        border-radius: 4px !important;
+    }
+    
+    .stDateInput > div > div > input {
+        border-color: #E03C31 !important;
+        border-radius: 4px !important;
+        padding: 0.5rem !important;
+    }
+    
+    .stDateInput > label {
+        color: #2C3E50 !important;
+        font-weight: 600 !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .stSuccess {
+        background-color: #F0F8F0 !important;
+        border-left: 4px solid #E03C31 !important;
+        border-radius: 4px !important;
+        padding: 1rem !important;
+    }
+    
+    /* Date range container styling - matching reference UI */
+    .date-range-section {
+        background-color: #F8F9FA;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid #E5E5E5;
+        margin: 1.5rem 0;
+    }
+    
+    .date-header {
+        color: #E03C31 !important;
+        font-weight: 700 !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 1rem !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    
+    .date-label-custom {
+        color: #2C3E50 !important;
+        font-weight: 600 !important;
+        margin-bottom: 0.5rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Calendar icon styling */
+    .stDateInput > div > div > div > button {
+        color: #E03C31 !important;
+        border-color: #E03C31 !important;
+    }
+    
+    /* Success message for date range */
+    .date-success {
+        background-color: #E8F5E8;
+        border: 1px solid #4CAF50;
+        border-radius: 4px;
+        padding: 0.75rem;
+        margin: 1rem 0;
+        color: #2E7D2E;
+        font-weight: 500;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
     st.markdown('<h1 class="main-header">📄 PSUR Report Generation</h1>', unsafe_allow_html=True)
     
     # Check if data is uploaded
@@ -166,6 +253,54 @@ def show_report_generation_page():
         if selected_product:
             product_id = selected_product.split(' - ')[0]
             
+            # Date Range Selection Section - Styled like PWC reference UI
+            st.markdown('<div class="date-range-section">', unsafe_allow_html=True)
+            st.markdown('<div class="date-header">📅 Report Date Range</div>', unsafe_allow_html=True)
+            
+            # Create two columns for start and end dates
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.markdown('<div class="date-label-custom">Start Date</div>', unsafe_allow_html=True)
+                # Default to 1 year ago
+                default_start = datetime.now() - timedelta(days=365)
+                start_date = st.date_input(
+                    "Start date for PSUR period",
+                    value=default_start,
+                    key="start_date",
+                    help="Select the start date for the PSUR reporting period",
+                    label_visibility="collapsed"
+                )
+            
+            with col2:
+                st.markdown('<div class="date-label-custom">End Date</div>', unsafe_allow_html=True)
+                # Default to today
+                default_end = datetime.now()
+                end_date = st.date_input(
+                    "End date for PSUR period",
+                    value=default_end,
+                    key="end_date",
+                    help="Select the end date for the PSUR reporting period",
+                    label_visibility="collapsed"
+                )
+            
+            # Validate date range
+            if start_date > end_date:
+                st.error("⚠️ Start date must be before end date")
+            else:
+                # Show selected date range with custom styling
+                st.markdown(f'''
+                <div class="date-success">
+                    📊 <strong>Report Period:</strong> {start_date.strftime('%d-%b-%Y')} to {end_date.strftime('%d-%b-%Y')}
+                </div>
+                ''', unsafe_allow_html=True)
+                
+                # Store dates in session state
+                st.session_state.report_start_date = start_date
+                st.session_state.report_end_date = end_date
+            
+            st.markdown('</div>', unsafe_allow_html=True)
+            
             # Debug information
             with st.expander("🔍 Debug Information", expanded=False):
                 st.markdown("**Product Data Summary:**")
@@ -175,29 +310,31 @@ def show_report_generation_page():
                     if df is not None and len(df) > 0:
                         st.dataframe(df.head(3))
             
-            # Generate report button
-            if st.button("🤖 Generate PSUR Report", type="primary"):
-                with st.spinner("Generating AI-powered PSUR report..."):
-                    try:
-                        # Debug: Show what data is being passed
-                        debug_data = backend.get_product_data(product_id, st.session_state.uploaded_data)
-                        logger.info(f"Generating report for product {product_id} with data: {[(k, len(v) if v is not None else 0) for k, v in debug_data.items()]}")
-                        
-                        # Generate the report
-                        report_content = report_generator.generate_psur_report(
-                            product_id, 
-                            st.session_state.uploaded_data
-                        )
-                        
-                        st.session_state.generated_report = report_content
-                        st.session_state.report_product_id = product_id
-                        
-                        logger.info(f"PSUR report generated for product: {product_id}")
-                        st.success("✅ PSUR report generated successfully!")
-                        
-                    except Exception as e:
-                        logger.error(f"Error generating report: {str(e)}")
-                        st.error(f"❌ Error generating report: {str(e)}")
+            # Only show generate button if date range is valid
+            if start_date <= end_date:
+                # Generate report button
+                if st.button("🤖 Generate PSUR Report", type="primary"):
+                    with st.spinner("Generating AI-powered PSUR report..."):
+                        try:
+                            # Debug: Show what data is being passed
+                            debug_data = backend.get_product_data(product_id, st.session_state.uploaded_data)
+                            logger.info(f"Generating report for product {product_id} with data: {[(k, len(v) if v is not None else 0) for k, v in debug_data.items()]}")
+                            
+                            # Generate the report
+                            report_content = report_generator.generate_psur_report(
+                                product_id, 
+                                st.session_state.uploaded_data
+                            )
+                            
+                            st.session_state.generated_report = report_content
+                            st.session_state.report_product_id = product_id
+                            
+                            logger.info(f"PSUR report generated for product: {product_id}")
+                            st.success("✅ PSUR report generated successfully!")
+                            
+                        except Exception as e:
+                            logger.error(f"Error generating report: {str(e)}")
+                            st.error(f"❌ Error generating report: {str(e)}")
             
             # Display generated report
             if 'generated_report' in st.session_state:
