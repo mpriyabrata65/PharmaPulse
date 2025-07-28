@@ -1,0 +1,33 @@
+# Git Commands to Commit and Push Pharma Pulse
+
+## Step 1: Add all your project files
+git add app.py backend.py docx_pdf_exporter.py login.py psur_app.py report_generator.py utils.py replit.md pyproject.toml uv.lock README.md .gitignore
+
+## Step 2: Commit with descriptive message
+git commit -m "Initial commit: Pharma Pulse PSUR Generation System
+
+- Complete Streamlit web application for PSUR generation
+- CSV data validation and processing  
+- AI-powered report generation with OpenAI integration
+- PWC-branded UI with clickable sidebar navigation
+- Document export in Word and PDF formats
+- User authentication system
+- Comprehensive logging and error handling
+- Compliance with Indian CDSCO pharmacovigilance standards"
+
+## Step 3: Push to your GitHub repository
+git push -u origin main
+
+## If you get authentication errors:
+# You'll need to set up a Personal Access Token (PAT) for GitHub
+# Go to GitHub Settings > Developer settings > Personal access tokens > Tokens (classic)
+# Generate a new token with 'repo' permissions
+# Use your GitHub username and the token as password when prompted
+
+## Alternative: Set up remote with token
+git remote set-url origin https://YOUR_USERNAME:YOUR_PERSONAL_ACCESS_TOKEN@github.com/mpriyabrata65/PharmaPulse.git
+git push -u origin main
+
+## Verify the push worked
+git status
+git log --oneline

@@ -647,3 +647,56 @@
 2025-07-24 09:50:02,045 - login - INFO - Successful login for user: admin
 2025-07-24 09:50:02,138 - utils - INFO - Pharma Pulse application started
 2025-07-24 09:50:02,139 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:50:06,234 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:50:06,235 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:50:06,325 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:50:06,325 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:50:08,814 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:50:08,814 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:50:08,898 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:50:08,898 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:50:14,118 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:50:14,118 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:50:14,194 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:50:14,195 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:51:40,009 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:51:40,010 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:51:40,013 - psur_app - INFO - User logged out
+2025-07-24 09:51:40,094 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:51:40,094 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:54:04,044 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:54:04,045 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:54:12,110 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:54:12,111 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 09:54:12,115 - login - INFO - Successful login for user: admin
+2025-07-24 09:54:12,203 - utils - INFO - Pharma Pulse application started
+2025-07-24 09:54:12,203 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 10:11:21,752 - utils - INFO - Pharma Pulse application started
+2025-07-24 10:11:21,753 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 10:11:21,757 - psur_app - INFO - User logged out
+2025-07-24 10:11:21,839 - utils - INFO - Pharma Pulse application started
+2025-07-24 10:11:21,839 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 11:45:13,357 - utils - INFO - Pharma Pulse application started
+2025-07-24 11:45:13,360 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 11:45:20,976 - utils - INFO - Pharma Pulse application started
+2025-07-24 11:45:20,977 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 11:45:20,981 - login - INFO - Successful login for user: admin
+2025-07-24 11:45:21,071 - utils - INFO - Pharma Pulse application started
+2025-07-24 11:45:21,072 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 11:45:29,130 - utils - INFO - Pharma Pulse application started
+2025-07-24 11:45:29,131 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 11:45:29,233 - utils - INFO - Pharma Pulse application started
+2025-07-24 11:45:29,234 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 11:45:31,855 - utils - INFO - Pharma Pulse application started
+2025-07-24 11:45:31,856 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 11:45:31,949 - utils - INFO - Pharma Pulse application started
+2025-07-24 11:45:31,949 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 11:45:35,667 - utils - INFO - Pharma Pulse application started
+2025-07-24 11:45:35,668 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 11:45:35,768 - utils - INFO - Pharma Pulse application started
+2025-07-24 11:45:35,769 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 11:59:17,351 - utils - INFO - Pharma Pulse application started
+2025-07-24 11:59:17,351 - utils - INFO - Logging to: logs/log_20250724.txt
+2025-07-24 11:59:17,355 - psur_app - INFO - User logged out
+2025-07-24 11:59:17,446 - utils - INFO - Pharma Pulse application started
+2025-07-24 11:59:17,447 - utils - INFO - Logging to: logs/log_20250724.txt
