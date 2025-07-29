@@ -29,11 +29,13 @@ def show_login_page():
         
         # Handle login
         if submit_button:
-            if authenticate_user(username, password):
+            auth_result = authenticate_user(username, password)
+            if auth_result["authenticated"]:
                 st.session_state.authenticated = True
+                st.session_state.role = auth_result["role"]
+                st.session_state.username = auth_result["username"]
                 st.session_state.current_page = "📁 Data Upload"  # Set initial page to Data Upload
-                st.session_state.username = username
-                logger.info(f"Successful login for user: {username}")
+                logger.info(f"Successful login for user: {username} with role: {auth_result['role']}")
                 st.success("✅ Login successful! Redirecting...")
                 st.rerun()
             else:
@@ -53,24 +55,35 @@ def show_login_page():
         - Provides data visualization and analytics
         """)
         
-        st.markdown("### 🔑 Default Credentials")
-        st.markdown("**Username:** `admin`")
-        st.markdown("**Password:** `pwc@123`")
+        st.markdown("### 🔑 Available Credentials")
+        st.markdown("**Admin Access:**")
+        st.markdown("- Username: `admin` | Password: `pwc@123`")
+        st.markdown("**Reviewer Access:**")
+        st.markdown("- Username: `reviewer` | Password: `review@123`")
 
-def authenticate_user(username: str, password: str) -> bool:
+def authenticate_user(username: str, password: str) -> dict:
     """
-    Authenticate user with hardcoded credentials
+    Authenticate user with hardcoded credentials and return role
     
     Args:
         username: Username entered by user
         password: Password entered by user
     
     Returns:
-        bool: True if authentication successful, False otherwise
+        dict: Contains 'authenticated' (bool) and 'role' (str) if successful, None if failed
     """
     
-    # Hardcoded credentials as specified
-    VALID_USERNAME = "admin"
-    VALID_PASSWORD = "pwc@123"
+    # Hardcoded users and roles as specified
+    USERS = {
+        "admin": {"password": "pwc@123", "role": "admin"},
+        "reviewer": {"password": "review@123", "role": "reviewer"}
+    }
     
-    return username == VALID_USERNAME and password == VALID_PASSWORD
+    if username in USERS and USERS[username]["password"] == password:
+        return {
+            "authenticated": True,
+            "role": USERS[username]["role"],
+            "username": username
+        }
+    
+    return {"authenticated": False}

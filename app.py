@@ -76,6 +76,9 @@ def initialize_app():
     if 'authenticated' not in st.session_state:
         st.session_state.authenticated = False
     
+    if 'role' not in st.session_state:
+        st.session_state.role = None
+    
     if 'current_page' not in st.session_state:
         st.session_state.current_page = 'login'
     
@@ -95,7 +98,12 @@ def main():
     if not st.session_state.authenticated:
         login.show_login_page()
     else:
-        psur_app.main_app()
+        # Check if role is stored in session
+        if 'role' not in st.session_state or st.session_state.role is None:
+            st.error("Unauthorized. Please log in.")
+            st.stop()
+        else:
+            psur_app.main_app()
 
 if __name__ == "__main__":
     main()
