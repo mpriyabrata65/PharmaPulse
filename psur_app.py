@@ -158,40 +158,36 @@ def show_data_upload_page():
     the required schema before processing.
     """)
     
-    # Fixed schema display with proper HTML rendering
+    # Fixed schema display - using proper Streamlit components instead of raw HTML
     with st.expander("📋 Required File Schemas", expanded=False):
-        st.markdown("""
-        <div class="metric-card pulse-hover" style="margin: 0;">
-            <h4 style="color: #E03C31; margin-bottom: 1rem; font-family: 'Montserrat', sans-serif;">📄 File Requirements</h4>
+        st.markdown("#### 📄 File Requirements")
+        
+        # Create columns for file schemas
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("""
+            **1. Products.csv**  
+            `ProductID, ProductName, INN, DosageForm, Strength`
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
-                <div style="padding: 1rem; background: rgba(224, 60, 49, 0.08); border-radius: 12px; border: 1px solid rgba(224, 60, 49, 0.2); transition: all 0.3s ease;">
-                    <h5 style="color: #E03C31; margin: 0 0 0.5rem 0; font-family: 'Montserrat', sans-serif; font-weight: 600;">1. Products.csv</h5>
-                    <p style="margin: 0; font-size: 0.9rem; color: #333333; line-height: 1.4;">ProductID, ProductName, INN, DosageForm, Strength</p>
-                </div>
-                <div style="padding: 1rem; background: rgba(224, 60, 49, 0.08); border-radius: 12px; border: 1px solid rgba(224, 60, 49, 0.2); transition: all 0.3s ease;">
-                    <h5 style="color: #E03C31; margin: 0 0 0.5rem 0; font-family: 'Montserrat', sans-serif; font-weight: 600;">2. Authorizations.csv</h5>
-                    <p style="margin: 0; font-size: 0.9rem; color: #333333; line-height: 1.4;">AuthorizationID, ProductID, Country, MarketingStatus, AuthorizationDate, LicenseNumber</p>
-                </div>
-                <div style="padding: 1rem; background: rgba(224, 60, 49, 0.08); border-radius: 12px; border: 1px solid rgba(224, 60, 49, 0.2); transition: all 0.3s ease;">
-                    <h5 style="color: #E03C31; margin: 0 0 0.5rem 0; font-family: 'Montserrat', sans-serif; font-weight: 600;">3. AdverseEvents.csv</h5>
-                    <p style="margin: 0; font-size: 0.9rem; color: #333333; line-height: 1.4;">AEID, ProductID, ReportedDate, PatientAge, Gender, EventDescription, Outcome</p>
-                </div>
-                <div style="padding: 1rem; background: rgba(224, 60, 49, 0.08); border-radius: 12px; border: 1px solid rgba(224, 60, 49, 0.2); transition: all 0.3s ease;">
-                    <h5 style="color: #E03C31; margin: 0 0 0.5rem 0; font-family: 'Montserrat', sans-serif; font-weight: 600;">4. RegulatoryActions.csv</h5>
-                    <p style="margin: 0; font-size: 0.9rem; color: #333333; line-height: 1.4;">ActionID, ProductID, ActionDate, Region, ActionTaken, Justification</p>
-                </div>
-                <div style="padding: 1rem; background: rgba(224, 60, 49, 0.08); border-radius: 12px; border: 1px solid rgba(224, 60, 49, 0.2); transition: all 0.3s ease;">
-                    <h5 style="color: #E03C31; margin: 0 0 0.5rem 0; font-family: 'Montserrat', sans-serif; font-weight: 600;">5. ExposureEstimates.csv</h5>
-                    <p style="margin: 0; font-size: 0.9rem; color: #333333; line-height: 1.4;">ExposureID, ProductID, Region, TimePeriod, EstimatedPatients, EstimationMethod</p>
-                </div>
-                <div style="padding: 1rem; background: rgba(224, 60, 49, 0.08); border-radius: 12px; border: 1px solid rgba(224, 60, 49, 0.2); transition: all 0.3s ease;">
-                    <h5 style="color: #E03C31; margin: 0 0 0.5rem 0; font-family: 'Montserrat', sans-serif; font-weight: 600;">6. ClinicalStudies.csv</h5>
-                    <p style="margin: 0; font-size: 0.9rem; color: #333333; line-height: 1.4;">StudyID, ProductID, StudyTitle, Status, CompletionDate</p>
-                </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+            **2. Authorizations.csv**  
+            `AuthorizationID, ProductID, Country, MarketingStatus, AuthorizationDate, LicenseNumber`
+            
+            **3. AdverseEvents.csv**  
+            `AEID, ProductID, ReportedDate, PatientAge, Gender, EventDescription, Outcome`
+            """)
+            
+        with col2:
+            st.markdown("""
+            **4. RegulatoryActions.csv**  
+            `ActionID, ProductID, ActionDate, Region, ActionTaken, Justification`
+            
+            **5. ExposureEstimates.csv**  
+            `ExposureID, ProductID, Region, TimePeriod, EstimatedPatients, EstimationMethod`
+            
+            **6. ClinicalStudies.csv**  
+            `StudyID, ProductID, StudyTitle, Status, CompletionDate`
+            """)
     
     # Enhanced file upload section
     st.markdown("""

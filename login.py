@@ -6,16 +6,23 @@ logger = logging.getLogger(__name__)
 def show_login_page():
     """Display the login page with enhanced PwC branding"""
     
-    # Add background styling and header
+    # Apply login page specific styling
     st.markdown("""
-    <div class="fade-in">
+    <style>
+    .stApp {
+        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDgwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojODdDRUVCO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNCMEUwRTY7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHBhdHRlcm4gaWQ9ImRvdHMiIHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+CiAgICA8L3BhdHRlcm4+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0idXJsKCNiZ0dyYWRpZW50KSIvPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0idXJsKCNkb3RzKSIvPgo8L3N2Zz4=') center/cover fixed,
+                linear-gradient(135deg, rgba(241, 241, 241, 0.85) 0%, rgba(232, 232, 232, 0.85) 100%) !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Clean header without extra boxes
+    st.markdown("""
+    <div class="fade-in" style="text-align: center;">
         <h1 class="main-header">Welcome to Pharma Pulse</h1>
-        <div style="text-align: center; margin-bottom: 2rem;">
-            <p style="font-size: 1.2rem; color: #666; font-weight: 300;">
-                Advanced PSUR Generation System
-            </p>
-            <hr class="pwc-divider">
-        </div>
+        <p style="font-size: 1.2rem; color: #666; font-weight: 300; margin: 0 0 2rem 0;">
+            Advanced PSUR Generation System
+        </p>
     </div>
     """, unsafe_allow_html=True)
     
