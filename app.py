@@ -88,15 +88,24 @@ st.markdown("""
         background: transparent !important;
     }
     
-    .stApp button[data-testid="collapsedControl"] {
-        background: #333333 !important;
+    /* Sidebar toggle button - make it black and visible */
+    .stApp button[data-testid="collapsedControl"], button[kind="headerNoPadding"] {
+        background: #000000 !important;
         color: white !important;
-        border: none !important;
+        border: 1px solid #333333 !important;
         border-radius: 4px !important;
+        padding: 0.5rem !important;
     }
     
-    .stApp button[data-testid="collapsedControl"]:hover {
-        background: #E03C31 !important;
+    .stApp button[data-testid="collapsedControl"]:hover, button[kind="headerNoPadding"]:hover {
+        background: #333333 !important;
+    }
+    
+    /* Alternative selector for sidebar toggle */
+    .css-vk3wp9, .css-1kyxreq {
+        background: #000000 !important;
+        color: white !important;
+        border: 1px solid #333333 !important;
     }
     
     /* Ensure all text elements have proper colors */
@@ -222,6 +231,17 @@ st.markdown("""
     
     .sidebar .sidebar-content h1, .sidebar .sidebar-content h2, .sidebar .sidebar-content h3 {
         color: white !important;
+    }
+    
+    /* Fix Pharma Pulse text visibility in sidebar */
+    .stSidebar h1, .stSidebar h2, .stSidebar h3, .stSidebar .stMarkdown h1, .stSidebar .stMarkdown h2, .stSidebar .stMarkdown h3 {
+        color: white !important;
+        background: transparent !important;
+    }
+    
+    .stSidebar .stMarkdown p, .stSidebar .stMarkdown div, .stSidebar .stMarkdown span {
+        color: white !important;
+        background: transparent !important;
     }
     
     /* Fix all sidebar elements and backgrounds */
