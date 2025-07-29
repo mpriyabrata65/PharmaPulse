@@ -9,6 +9,23 @@ Pharma Pulse is a Streamlit web application that automates the generation of PSU
 Preferred communication style: Simple, everyday language.
 UI Preferences: Clickable sidebar navigation list instead of dropdown menu for easy one-click page access.
 
+## Recent Changes (July 29, 2025)
+
+### Role-Based Authentication System
+- Enhanced login system with two user roles:
+  - **Admin**: Full access to upload, validation, report generation, and editing
+  - **Reviewer**: View-only access to generated reports
+- Navigation menu now adapts based on user role
+- Authorization checks implemented across all major functions
+
+### Reviewer Notes & Report Editing Features
+- Added admin-only reviewer notes system with timestamped history
+- Implemented report editing functionality for admin users
+- Notes are saved to JSON files and persist across sessions
+- Final reports include both edited content and reviewer comments
+- Threaded comment history displays chronologically
+- Export functions now include all edits and notes in downloads
+
 ## System Architecture
 
 ### Frontend Architecture

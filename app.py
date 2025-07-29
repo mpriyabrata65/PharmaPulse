@@ -87,6 +87,15 @@ def initialize_app():
     
     if 'validation_results' not in st.session_state:
         st.session_state.validation_results = {}
+    
+    if 'reviewer_notes' not in st.session_state:
+        st.session_state.reviewer_notes = {}
+    
+    if 'edited_report_content' not in st.session_state:
+        st.session_state.edited_report_content = None
+    
+    if 'final_reviewer_notes' not in st.session_state:
+        st.session_state.final_reviewer_notes = ""
 
 def main():
     """Main application entry point"""

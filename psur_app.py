@@ -400,6 +400,9 @@ def show_report_generation_page():
                             st.session_state.generated_report = report_content
                             st.session_state.report_product_id = product_id
                             
+                            # Load existing reviewer notes for this product
+                            load_reviewer_notes_from_file(product_id)
+                            
                             logger.info(f"PSUR report generated for product: {product_id}")
                             st.success("✅ PSUR report generated successfully!")
                             
@@ -419,9 +422,19 @@ def display_generated_report():
     
     st.markdown("### 📋 Generated PSUR Report")
     
+    # Get current user role
+    user_role = st.session_state.get('role', '')
+    
+    # Determine what content to display (edited or original)
+    display_content = st.session_state.get('edited_report_content') or st.session_state.generated_report
+    
     # Display report content
     with st.expander("📖 View Report Content", expanded=True):
-        st.markdown(st.session_state.generated_report, unsafe_allow_html=True)
+        st.markdown(display_content, unsafe_allow_html=True)
+    
+    # Admin-only reviewer notes and editing section
+    if user_role == 'admin':
+        show_admin_editing_section()
     
     # Export options
     st.markdown("### 📥 Export Options")
@@ -431,8 +444,10 @@ def display_generated_report():
     with col1:
         if st.button("📄 Download as Word (.docx)", type="secondary"):
             try:
+                # Use final report content with edits and notes
+                final_content = get_final_report_content()
                 docx_file = docx_pdf_exporter.generate_docx(
-                    st.session_state.generated_report,
+                    final_content,
                     st.session_state.report_product_id
                 )
                 
@@ -452,8 +467,10 @@ def display_generated_report():
     with col2:
         if st.button("📄 Download as PDF", type="secondary"):
             try:
+                # Use final report content with edits and notes
+                final_content = get_final_report_content()
                 pdf_file = docx_pdf_exporter.generate_pdf(
-                    st.session_state.generated_report,
+                    final_content,
                     st.session_state.report_product_id
                 )
                 
@@ -472,6 +489,178 @@ def display_generated_report():
     
     # Optional data visualization section
     show_data_visualization()
+
+def show_admin_editing_section():
+    """Display admin-only editing and reviewer notes section"""
+    
+    with st.expander("✍️ Reviewer Notes & Final Edits"):
+        st.markdown("### 🗒️ Add Reviewer Note")
+        
+        # Add new reviewer note
+        new_note = st.text_area(
+            "Enter your comments here:",
+            placeholder="Add notes about the review process, changes needed, or final remarks...",
+            height=100,
+            key="new_reviewer_note"
+        )
+        
+        if st.button("➕ Add Note", type="secondary"):
+            if new_note.strip():
+                # Get current product ID
+                product_id = st.session_state.get('report_product_id', 'default')
+                
+                # Initialize notes for this product if not exists
+                if product_id not in st.session_state.reviewer_notes:
+                    st.session_state.reviewer_notes[product_id] = []
+                
+                # Create note entry with timestamp
+                from datetime import datetime
+                note_entry = {
+                    "timestamp": datetime.now().strftime('%d-%b-%Y %H:%M'),
+                    "author": st.session_state.get('username', 'admin'),
+                    "note": new_note.strip()
+                }
+                
+                # Add to notes list
+                st.session_state.reviewer_notes[product_id].append(note_entry)
+                
+                # Save notes to file
+                save_reviewer_notes_to_file(product_id)
+                
+                st.success("✅ Note added successfully!")
+                st.rerun()
+        
+        # Display notes history
+        product_id = st.session_state.get('report_product_id', 'default')
+        if product_id in st.session_state.reviewer_notes and st.session_state.reviewer_notes[product_id]:
+            st.markdown("### 📝 Reviewer Notes History")
+            
+            # Display notes in reverse chronological order (newest first)
+            notes = st.session_state.reviewer_notes[product_id]
+            for note in reversed(notes):
+                st.markdown(f"""
+                <div style="background-color: #f8f9fa; padding: 12px; border-radius: 8px; margin: 8px 0; border-left: 4px solid #E03C31;">
+                    <div style="color: #666; font-size: 0.9rem; margin-bottom: 5px;">
+                        🕒 <strong>{note['timestamp']}</strong> – {note['author']}
+                    </div>
+                    <div style="color: #333;">
+                        "{note['note']}"
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+        
+        st.markdown("---")
+        
+        # Edit PSUR content section
+        st.markdown("### ✏️ Edit PSUR Content")
+        
+        edit_mode = st.checkbox("Edit PSUR content before finalizing", key="edit_psur_checkbox")
+        
+        if edit_mode:
+            st.markdown("**Edit the PSUR report content below:**")
+            
+            # Get current content (edited or original)
+            current_content = st.session_state.get('edited_report_content') or st.session_state.generated_report
+            
+            edited_content = st.text_area(
+                "Edit PSUR Report:",
+                value=current_content,
+                height=400,
+                key="psur_editor",
+                help="Make any necessary changes to the PSUR report content. This will be included in the final downloads."
+            )
+            
+            # Update edited content in session state
+            st.session_state.edited_report_content = edited_content
+        
+        # Final reviewer notes for the report
+        st.markdown("### 📄 Final Reviewer Comments")
+        final_notes = st.text_area(
+            "Final comments to include in the report:",
+            value=st.session_state.get('final_reviewer_notes', ''),
+            placeholder="Enter final reviewer comments that will be appended to the report...",
+            height=100,
+            key="final_reviewer_comments"
+        )
+        
+        # Update final notes in session state
+        st.session_state.final_reviewer_notes = final_notes
+        
+        # Finalize button
+        if st.button("📋 Finalize & Update Report", type="primary"):
+            st.success("✅ Report finalized with your edits and notes!")
+            st.info("Your changes will be included in the download files.")
+
+def save_reviewer_notes_to_file(product_id):
+    """Save reviewer notes to a JSON file"""
+    import json
+    import os
+    
+    try:
+        # Create output directory if it doesn't exist
+        os.makedirs("output", exist_ok=True)
+        
+        # File path for notes
+        notes_file = f"output/reviewer_notes_{product_id}.json"
+        
+        # Get notes for this product
+        notes = st.session_state.reviewer_notes.get(product_id, [])
+        
+        # Save to file
+        with open(notes_file, 'w') as f:
+            json.dump(notes, f, indent=2)
+            
+        logger.info(f"Reviewer notes saved to {notes_file}")
+        
+    except Exception as e:
+        logger.error(f"Error saving reviewer notes: {str(e)}")
+
+def load_reviewer_notes_from_file(product_id):
+    """Load reviewer notes from JSON file if exists"""
+    import json
+    import os
+    
+    try:
+        notes_file = f"output/reviewer_notes_{product_id}.json"
+        
+        if os.path.exists(notes_file):
+            with open(notes_file, 'r') as f:
+                notes = json.load(f)
+                
+            # Initialize if not exists
+            if product_id not in st.session_state.reviewer_notes:
+                st.session_state.reviewer_notes[product_id] = []
+            
+            # Load notes into session state
+            st.session_state.reviewer_notes[product_id] = notes
+            logger.info(f"Reviewer notes loaded from {notes_file}")
+            
+    except Exception as e:
+        logger.error(f"Error loading reviewer notes: {str(e)}")
+
+def get_final_report_content():
+    """Get the final report content including edits and reviewer notes"""
+    
+    # Get the content (edited or original)
+    content = st.session_state.get('edited_report_content') or st.session_state.generated_report
+    
+    # Add final reviewer notes if they exist
+    final_notes = st.session_state.get('final_reviewer_notes', '').strip()
+    if final_notes:
+        content += f"\n\n## Reviewer Comments & Final Remarks\n\n{final_notes}"
+    
+    # Add notes history if in admin mode and notes exist
+    user_role = st.session_state.get('role', '')
+    if user_role == 'admin':
+        product_id = st.session_state.get('report_product_id', 'default')
+        if product_id in st.session_state.reviewer_notes and st.session_state.reviewer_notes[product_id]:
+            content += "\n\n## Review History\n\n"
+            notes = st.session_state.reviewer_notes[product_id]
+            for note in reversed(notes):
+                content += f"**{note['timestamp']}** - {note['author']}\n"
+                content += f"{note['note']}\n\n"
+    
+    return content
 
 def show_data_visualization():
     """Show optional data visualization section"""
