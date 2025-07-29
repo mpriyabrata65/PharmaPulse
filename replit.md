@@ -28,13 +28,15 @@ UI Preferences: Clickable sidebar navigation list instead of dropdown menu for e
 
 ### PwC Brand Identity Implementation
 - Comprehensive visual redesign with PwC brand colors (#E03C31, #FFB612, #F1F1F1)
-- Modern typography using Google Fonts (Open Sans)
-- Enhanced login page with animated elements and professional styling
-- Gradient backgrounds and subtle shadow effects throughout
+- Modern typography using Google Fonts (Montserrat, Open Sans)
+- Enhanced login page with pharmaceutical background image and professional styling
+- Fixed login container white block issues and text contrast problems
 - Improved file upload interface with visual feedback
 - Branded sidebar navigation with role-based menu items
-- Metric cards and data visualization with consistent PwC styling
-- Responsive design elements and hover animations
+- Enhanced tables with PwC colors, alternating rows, and hover effects
+- Fixed schema display rendering with proper HTML cards
+- Responsive design with mobile optimization
+- Professional metric cards with hover animations and proper contrast
 
 ## System Architecture
 

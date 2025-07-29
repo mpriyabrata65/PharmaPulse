@@ -18,25 +18,29 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Comprehensive PwC Brand Identity CSS
+# Comprehensive PwC Brand Identity CSS with Pharmaceutical Background
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap');
     
     /* Global App Styling */
     .stApp {
-        background: linear-gradient(135deg, #F1F1F1 0%, #E8E8E8 100%);
-        font-family: 'Open Sans', sans-serif;
+        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDgwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojODdDRUVCO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNCMEUwRTY7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHBhdHRlcm4gaWQ9ImRvdHMiIHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+CiAgICA8L3BhdHRlcm4+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0idXJsKCNiZ0dyYWRpZW50KSIvPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0idXJsKCNkb3RzKSIvPgogIDxlbGxpcHNlIGN4PSIxNTAiIGN5PSIxMjAiIHJ4PSIyNSIgcnk9IjE1IiBmaWxsPSIjRkY4QzQyIiBvcGFjaXR5PSIwLjgiLz4KICA8ZWxsaXBzZSBjeD0iMjAwIiBjeT0iMTAwIiByeD0iMjUiIHJ5PSIxNSIgZmlsbD0iI0ZGOEMxMiIgb3BhY2l0eT0iMC44Ii8+CiAgPGVsbGlwc2UgY3g9IjEwMCIgY3k9IjE0MCIgcng9IjI1IiByeT0iMTUiIGZpbGw9IiNGRjhDNDIiIG9wYWNpdHk9IjAuOCIvPgogIDxyZWN0IHg9Ijg1MCIgeT0iODAiIHdpZHRoPSIzMCIgaGVpZ2h0PSI2MCIgcng9IjE1IiBmaWxsPSIjNEE5MEUyIiBvcGFjaXR5PSIwLjgiLz4KICA8cmVjdCB4PSI4NTAiIHk9IjgwIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHJ4PSIxNSIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC45Ii8+CiAgPHJlY3QgeD0iMTAwMCIgeT0iMTUwIiB3aWR0aD0iODAiIGhlaWdodD0iMTIwIiByeD0iMTAiIGZpbGw9IiNEMjY5MUUiIG9wYWNpdHk9IjAuOCIvPgogIDxwYXRoIGQ9Ik01MCA1MDAgUTEwMCA0NTAgMTUwIDUwMCBRMjAwIDU1MCAyNTAgNTAwIiBzdHJva2U9IiMyQzNFNTAiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC43Ii8+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MDAiIHI9IjIwIiBmaWxsPSIjMkMzRTUwIiBvcGFjaXR5PSIwLjciLz4KICA8cmVjdCB4PSI5NTAiIHk9IjQwMCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxNjAiIHJ4PSI4IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjkiLz4KICA8cmVjdCB4PSI5NzAiIHk9IjQ5MCIgd2lkdGg9IjE1IiBoZWlnaHQ9IjQwIiBmaWxsPSIjNEE5MEUyIiBvcGFjaXR5PSIwLjgiLz4KICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSI2NTAiIHI9IjgiIGZpbGw9IiNGRjhDNDIiIG9wYWNpdHk9IjAuNyIvPgo8L3N2Zz4=') center/cover fixed,
+                linear-gradient(135deg, rgba(241, 241, 241, 0.85) 0%, rgba(232, 232, 232, 0.85) 100%);
+        font-family: 'Montserrat', 'Open Sans', sans-serif;
+        min-height: 100vh;
     }
     
-    /* Main Content Area */
+    /* Main Content Area - Fixed Container Issues */
     .main .block-container {
-        padding: 2rem 1rem;
+        padding: 1rem;
         background: rgba(255, 255, 255, 0.95);
         border-radius: 15px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
         margin: 1rem auto;
         backdrop-filter: blur(10px);
+        border: 1px solid rgba(224, 60, 49, 0.1);
+        max-width: 1200px;
     }
     
     /* Headers and Titles */
@@ -56,17 +60,18 @@ st.markdown("""
         font-weight: 600 !important;
     }
     
-    /* Login Container */
+    /* Fixed Login Container - No More White Block Issues */
     .login-container {
-        max-width: 450px;
+        max-width: 500px;
         margin: 2rem auto;
         padding: 3rem 2.5rem;
-        background: linear-gradient(145deg, #ffffff, #f8f9fa);
+        background: rgba(255, 255, 255, 0.95) !important;
         border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(224, 60, 49, 0.15);
-        border: 1px solid rgba(224, 60, 49, 0.1);
+        box-shadow: 0 20px 40px rgba(224, 60, 49, 0.2);
+        border: 2px solid rgba(224, 60, 49, 0.15);
         position: relative;
-        overflow: hidden;
+        backdrop-filter: blur(15px);
+        z-index: 10;
     }
     
     .login-container::before {
@@ -75,8 +80,22 @@ st.markdown("""
         top: 0;
         left: 0;
         right: 0;
-        height: 4px;
+        height: 5px;
         background: linear-gradient(90deg, #E03C31, #FFB612);
+        border-radius: 20px 20px 0 0;
+    }
+    
+    /* Fix Text Color Issues in Login Form */
+    .login-container * {
+        color: #333333 !important;
+    }
+    
+    .login-container h1, .login-container h2, .login-container h3 {
+        color: #E03C31 !important;
+    }
+    
+    .login-container p, .login-container div, .login-container span {
+        color: #333333 !important;
     }
     
     /* Buttons - Primary */
@@ -105,7 +124,7 @@ st.markdown("""
         transform: translateY(0px) !important;
     }
     
-    /* Form Elements */
+    /* Enhanced Form Elements - Fixed Color Contrast */
     .stTextInput > div > div > input,
     .stTextArea > div > div > textarea,
     .stSelectbox > div > div > select {
@@ -113,15 +132,32 @@ st.markdown("""
         border-radius: 10px !important;
         padding: 0.75rem !important;
         font-size: 1rem !important;
-        font-family: 'Open Sans', sans-serif !important;
+        font-family: 'Montserrat', 'Open Sans', sans-serif !important;
         transition: all 0.3s ease !important;
+        background-color: #FFFFFF !important;
+        color: #333333 !important;
     }
     
     .stTextInput > div > div > input:focus,
     .stTextArea > div > div > textarea:focus,
     .stSelectbox > div > div > select:focus {
         border-color: #E03C31 !important;
-        box-shadow: 0 0 0 3px rgba(224, 60, 49, 0.1) !important;
+        box-shadow: 0 0 0 3px rgba(224, 60, 49, 0.15) !important;
+        outline: none !important;
+    }
+    
+    .stTextInput > div > div > input::placeholder,
+    .stTextArea > div > div > textarea::placeholder {
+        color: #999999 !important;
+    }
+    
+    /* Form Labels */
+    .stTextInput > label,
+    .stTextArea > label,
+    .stSelectbox > label {
+        color: #333333 !important;
+        font-weight: 600 !important;
+        font-family: 'Montserrat', sans-serif !important;
     }
     
     /* Sidebar Styling */
@@ -158,11 +194,51 @@ st.markdown("""
         font-weight: 700 !important;
     }
     
-    /* Tables */
+    /* Enhanced Tables with PwC Styling */
     .stDataFrame {
-        border-radius: 10px !important;
+        border-radius: 12px !important;
         overflow: hidden !important;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+        border: 1px solid rgba(224, 60, 49, 0.1) !important;
+    }
+    
+    .stDataFrame table {
+        background: #FFFFFF !important;
+    }
+    
+    .stDataFrame thead tr {
+        background: linear-gradient(90deg, #E03C31, #c72e24) !important;
+    }
+    
+    .stDataFrame thead th {
+        color: #FFFFFF !important;
+        font-weight: 600 !important;
+        font-family: 'Montserrat', sans-serif !important;
+        padding: 1rem 0.75rem !important;
+        border: none !important;
+    }
+    
+    .stDataFrame tbody tr {
+        color: #333333 !important;
+    }
+    
+    .stDataFrame tbody tr:nth-child(even) {
+        background-color: rgba(241, 241, 241, 0.5) !important;
+    }
+    
+    .stDataFrame tbody tr:nth-child(odd) {
+        background-color: #FFFFFF !important;
+    }
+    
+    .stDataFrame tbody tr:hover {
+        background-color: rgba(224, 60, 49, 0.05) !important;
+        transition: background-color 0.2s ease !important;
+    }
+    
+    .stDataFrame tbody td {
+        padding: 0.75rem !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(224, 60, 49, 0.1) !important;
     }
     
     /* Success/Error Messages */
@@ -214,7 +290,7 @@ st.markdown("""
         background-color: #E03C31 !important;
     }
     
-    /* Metric Cards */
+    /* Enhanced Metric Cards */
     .metric-card {
         background: linear-gradient(145deg, #ffffff, #f8f9fa);
         padding: 1.5rem;
@@ -222,6 +298,36 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         border-left: 4px solid #E03C31;
         margin: 1rem 0;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .metric-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .metric-card h3, .metric-card h4, .metric-card h5 {
+        color: #E03C31 !important;
+        font-family: 'Montserrat', sans-serif !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .metric-card p, .metric-card li, .metric-card div {
+        color: #333333 !important;
+        line-height: 1.6 !important;
+    }
+    
+    .metric-card ul {
+        margin: 0 !important;
+        padding-left: 1.5rem !important;
+    }
+    
+    .metric-card code {
+        background: rgba(224, 60, 49, 0.1) !important;
+        color: #E03C31 !important;
+        padding: 0.2rem 0.4rem !important;
+        border-radius: 4px !important;
+        font-family: 'Monaco', 'Consolas', monospace !important;
     }
     
     /* Accent Elements */
@@ -268,7 +374,7 @@ st.markdown("""
         overflow: hidden !important;
     }
     
-    /* Custom Animation */
+    /* Enhanced Animations and Responsiveness */
     @keyframes fadeInUp {
         from {
             opacity: 0;
@@ -282,6 +388,62 @@ st.markdown("""
     
     .fade-in {
         animation: fadeInUp 0.6s ease-out;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+        100% { transform: scale(1); }
+    }
+    
+    .pulse-hover:hover {
+        animation: pulse 0.6s ease-in-out;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .login-container {
+            margin: 1rem;
+            padding: 2rem 1.5rem;
+            max-width: 95%;
+        }
+        
+        .main-header {
+            font-size: 2.2rem !important;
+        }
+        
+        .metric-card {
+            margin: 0.5rem 0;
+            padding: 1rem;
+        }
+        
+        .main .block-container {
+            padding: 0.5rem;
+            margin: 0.5rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .main-header {
+            font-size: 1.8rem !important;
+        }
+        
+        .login-container {
+            padding: 1.5rem 1rem;
+        }
+    }
+    
+    /* Fix Contrast Issues - Ensure All Text is Readable */
+    .stApp * {
+        color: #333333;
+    }
+    
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
+        color: #E03C31 !important;
+    }
+    
+    .stApp .stMarkdown p, .stApp .stMarkdown div, .stApp .stMarkdown span {
+        color: #333333 !important;
     }
 </style>
 """, unsafe_allow_html=True)

@@ -1,0 +1,58 @@
+Fix and enhance the entire UI of the Pharma Pulse Streamlit application using the PwC brand design.
+
+🔧 Fix the following issues and apply enhancements:
+
+1. 🔒 LOGIN PAGE:
+   - Fix: There is a large white block that breaks the layout – remove or properly layer the form container over the background.
+   - Fix: Fonts inside the login form are white on white – make text color #333333.
+   - Enhancement: Add a background image (use reference image uploaded separately). Ensure the image scales well and keeps the login form centered and readable.
+   - Apply: PwC colors:
+     - Primary Red: #E03C31
+     - Background: #F1F1F1 or semi-transparent over background image
+     - Text: #333333
+     - Accent Yellow: #FFB612
+   - Font: Use "Open Sans" or "Montserrat"
+   - Title: "Welcome to Pharma Pulse" – bold, in #E03C31
+   - Add light drop shadow and border-radius to input card
+   - Ensure mobile and desktop responsiveness
+
+2. 🗃️ UPLOAD PAGE – Schema Display Fix:
+   - Fix: The schema section is displaying raw HTML instead of rendering.
+   - Fix this by:
+     - Wrapping it with `st.markdown(..., unsafe_allow_html=True)`
+     - Ensuring the HTML block renders styled cards for each schema (Products.csv, Authorizations.csv, etc.)
+   - Apply proper font color and readable contrast (no #FFF on #F1F1F1)
+
+3. 📝 ACCOUNT PAGE & REPORT PAGE:
+   - Ensure all pages use:
+     - Background: #F1F1F1
+     - Section headers: bold #E03C31
+     - Text: #333333
+     - Buttons: PwC red with white text, rounded, hover effect (background dark red or border yellow #FFB612)
+   - Tables:
+     - Light background with red headers
+     - Alternating row colors
+   - All inputs and forms styled consistently
+
+4. 🌐 SHARED STYLING ACROSS PAGES:
+   - Add a centralized CSS block with:
+     - Font: "Montserrat", fallback "sans-serif"
+     - Button styles
+     - Form control styling
+     - Card components
+   - Use this CSS block inside `st.markdown("""<style>...</style>""", unsafe_allow_html=True)` at the top of every page or shared layout file
+   - Add top margin/padding to avoid content overlapping
+
+5. 📱 RESPONSIVENESS:
+   - Ensure the login card and forms are centered and scalable on different screen sizes
+   - No fixed-width issues
+   - Add media queries or use Streamlit container layouts
+
+6. 🖼️ BACKGROUND IMAGE:
+   - Add the reference image as a full-screen login background
+   - Apply a semi-transparent white or light red overlay behind the login form for readability
+
+7. 🎯 GENERAL POLISH:
+   - Avoid hard-coded white (#FFF) text unless background contrast is sufficient
+   - Maintain consistent spacing, alignment, and font size
+   - Add modern hover effects to buttons and link actions
