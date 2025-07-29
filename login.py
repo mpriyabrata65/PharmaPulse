@@ -12,7 +12,7 @@ def show_login_page():
     .stApp {
         background: linear-gradient(135deg, #F8F8F8 0%, #FFFFFF 100%) !important;
         position: relative;
-        overflow: hidden;
+        min-height: 100vh;
     }
     
     /* Grid Pattern Background (like medical chart paper) */
