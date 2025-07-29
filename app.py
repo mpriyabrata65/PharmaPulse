@@ -88,29 +88,46 @@ st.markdown("""
         background: transparent !important;
     }
     
-    /* Sidebar toggle button - make it black and visible */
+    /* Sidebar toggle button - PwC orange theme */
     .stApp button[data-testid="collapsedControl"], button[kind="headerNoPadding"] {
-        background: #000000 !important;
-        color: white !important;
-        border: 1px solid #333333 !important;
+        background: #FFB612 !important;
+        color: #333333 !important;
+        border: 1px solid #e5a50a !important;
         border-radius: 4px !important;
         padding: 0.5rem !important;
+        font-weight: 600 !important;
     }
     
     .stApp button[data-testid="collapsedControl"]:hover, button[kind="headerNoPadding"]:hover {
-        background: #333333 !important;
+        background: #E03C31 !important;
+        color: white !important;
     }
     
     /* Alternative selector for sidebar toggle */
     .css-vk3wp9, .css-1kyxreq {
-        background: #000000 !important;
-        color: white !important;
-        border: 1px solid #333333 !important;
+        background: #FFB612 !important;
+        color: #333333 !important;
+        border: 1px solid #e5a50a !important;
     }
     
-    /* Ensure all text elements have proper colors */
+    /* Fix CSV upload text visibility */
     .stApp div, .stApp span, .stApp p {
         background: transparent !important;
+    }
+    
+    /* Ensure file uploader text is visible */
+    .stFileUploader label, .stFileUploader .stMarkdown, .stFileUploader div {
+        color: #333333 !important;
+        background: transparent !important;
+    }
+    
+    .stFileUploader .stMarkdown p, .stFileUploader .stMarkdown span {
+        color: #333333 !important;
+    }
+    
+    /* Fix all text elements in main content */
+    .main .block-container p, .main .block-container span, .main .block-container div {
+        color: #333333 !important;
     }
     
     /* Clean login form styling */
