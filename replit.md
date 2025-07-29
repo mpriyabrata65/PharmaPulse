@@ -35,9 +35,12 @@ UI Preferences: Clickable sidebar navigation list instead of dropdown menu for e
 ## Key Components
 
 ### Authentication System
-- **Implementation**: Session-based authentication using Streamlit session state
-- **Credentials**: Hardcoded admin/pwc@123 for demonstration purposes
-- **Session Management**: Maintains login state and handles logout functionality
+- **Implementation**: Role-based authentication using Streamlit session state
+- **User Roles**:
+  - **Admin**: admin/pwc@123 - Full access to upload, validation, and report generation
+  - **Reviewer**: reviewer/review@123 - View-only access to generated reports
+- **Access Control**: Navigation and features restricted based on user role
+- **Session Management**: Maintains login state, role information, and handles logout functionality
 
 ### Data Upload and Validation
 - **Required Files**: 6 CSV files with specific schemas:
@@ -99,6 +102,7 @@ UI Preferences: Clickable sidebar navigation list instead of dropdown menu for e
 - **API Keys**: OpenAI API key managed through environment variables
 - **File Paths**: Relative path handling for cross-platform compatibility
 - **Resource Management**: Automatic directory creation for outputs and logs
+- **Streamlit Configuration**: Enhanced file upload settings with CORS and XSRF protection disabled for Replit compatibility
 
 ### Session Management
 - **State Persistence**: Streamlit session state for user authentication and data storage
