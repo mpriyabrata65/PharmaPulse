@@ -18,7 +18,7 @@ def show_login_page():
     /* Grid Pattern Background (like medical chart paper) */
     .stApp::before {
         content: '';
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
@@ -28,12 +28,13 @@ def show_login_page():
             linear-gradient(90deg, rgba(224, 60, 49, 0.05) 1px, transparent 1px);
         background-size: 20px 20px;
         z-index: 0;
+        pointer-events: none;
     }
     
     /* Pharmaceutical Pills as Chart Elements */
     .stApp::after {
         content: '';
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
@@ -68,6 +69,7 @@ def show_login_page():
             linear-gradient(rgba(255, 182, 18, 0.04), rgba(255, 182, 18, 0.04)) 90% 85%/12px 2px no-repeat,
             linear-gradient(rgba(255, 182, 18, 0.04), rgba(255, 182, 18, 0.04)) 90% 85%/2px 12px no-repeat;
         z-index: 0;
+        pointer-events: none;
     }
     
     .main .block-container {
