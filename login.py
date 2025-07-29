@@ -6,14 +6,15 @@ logger = logging.getLogger(__name__)
 def show_login_page():
     """Display the login page with enhanced PwC branding"""
     
-    # Apply login page with PSUR pharmaceutical background
+    # Apply login page with PSUR pharmaceutical background elements
     st.markdown("""
     <style>
     .stApp {
-        background: url('pharma_psur_background.svg') center/cover fixed !important;
+        background: linear-gradient(135deg, #F1F1F1 0%, #FFFFFF 50%, #F8F8F8 100%) !important;
         position: relative;
     }
     
+    /* Pharmaceutical Elements Background */
     .stApp::before {
         content: '';
         position: fixed;
@@ -21,8 +22,37 @@ def show_login_page():
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 241, 241, 0.85) 100%);
+        background-image: 
+            /* DNA Helix */
+            radial-gradient(circle at 15% 20%, rgba(224, 60, 49, 0.08) 1px, transparent 1px),
+            radial-gradient(circle at 85% 15%, rgba(255, 182, 18, 0.06) 1px, transparent 1px),
+            /* Molecular structures */
+            radial-gradient(circle at 25% 80%, rgba(224, 60, 49, 0.05) 2px, transparent 2px),
+            radial-gradient(circle at 75% 75%, rgba(255, 182, 18, 0.05) 1.5px, transparent 1.5px),
+            /* Data points */
+            radial-gradient(circle at 10% 60%, rgba(224, 60, 49, 0.04) 1px, transparent 1px),
+            radial-gradient(circle at 90% 40%, rgba(255, 182, 18, 0.04) 1px, transparent 1px),
+            radial-gradient(circle at 50% 30%, rgba(224, 60, 49, 0.03) 1px, transparent 1px);
+        background-size: 150px 150px, 120px 120px, 180px 180px, 100px 100px, 80px 80px, 90px 90px, 110px 110px;
         z-index: 0;
+    }
+    
+    /* Laboratory Equipment Overlays */
+    .stApp::after {
+        content: '🧬 ⚗️ 💊 📊 🔬 ⚕️';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        font-size: 2rem;
+        color: rgba(224, 60, 49, 0.03);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        z-index: 0;
+        pointer-events: none;
     }
     
     .main .block-container {
@@ -30,7 +60,7 @@ def show_login_page():
         z-index: 1;
         background: rgba(255, 255, 255, 0.95) !important;
         border-radius: 15px !important;
-        box-shadow: 0 8px 32px rgba(224, 60, 49, 0.1) !important;
+        box-shadow: 0 8px 32px rgba(224, 60, 49, 0.15) !important;
         backdrop-filter: blur(10px) !important;
         border: 1px solid rgba(224, 60, 49, 0.1) !important;
     }
