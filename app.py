@@ -66,42 +66,27 @@ st.markdown("""
         font-weight: 600 !important;
     }
     
-    /* Fixed Login Container - No More White Block Issues */
-    .login-container {
-        max-width: 500px;
-        margin: 2rem auto;
-        padding: 3rem 2.5rem;
-        background: rgba(255, 255, 255, 0.95) !important;
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(224, 60, 49, 0.2);
-        border: 2px solid rgba(224, 60, 49, 0.15);
-        position: relative;
-        backdrop-filter: blur(15px);
-        z-index: 10;
+    /* Transparent login form styling - No white box */
+    .stForm {
+        background: rgba(255, 255, 255, 0.3) !important;
+        border-radius: 15px !important;
+        padding: 2rem !important;
+        backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
     }
     
-    .login-container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 5px;
-        background: linear-gradient(90deg, #E03C31, #FFB612);
-        border-radius: 20px 20px 0 0;
-    }
-    
-    /* Fix Text Color Issues in Login Form */
-    .login-container * {
+    /* Enhanced input styling for transparent background */
+    .stTextInput > div > div > input {
+        background: rgba(255, 255, 255, 0.9) !important;
+        border: 2px solid rgba(224, 60, 49, 0.3) !important;
         color: #333333 !important;
     }
     
-    .login-container h1, .login-container h2, .login-container h3 {
-        color: #E03C31 !important;
-    }
-    
-    .login-container p, .login-container div, .login-container span {
-        color: #333333 !important;
+    .stTextInput > div > div > input:focus {
+        background: rgba(255, 255, 255, 1) !important;
+        border-color: #E03C31 !important;
+        box-shadow: 0 0 0 2px rgba(224, 60, 49, 0.2) !important;
     }
     
     /* Buttons - Primary */

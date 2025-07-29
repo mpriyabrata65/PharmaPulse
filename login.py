@@ -26,16 +26,14 @@ def show_login_page():
     </div>
     """, unsafe_allow_html=True)
     
-    # Center the login form
+    # Center the login form without white container
     col1, col2, col3 = st.columns([1, 2, 1])
     
     with col2:
-        st.markdown('<div class="login-container fade-in">', unsafe_allow_html=True)
-        
         st.markdown("""
         <div style="text-align: center; margin-bottom: 1.5rem;">
-            <h3 style="color: #E03C31; font-weight: 600;">🔐 User Authentication</h3>
-            <p style="color: #666; font-size: 0.95rem;">Please enter your credentials to access the PSUR generation system</p>
+            <h3 style="color: #E03C31; font-weight: 600; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">🔐 User Authentication</h3>
+            <p style="color: #444; font-size: 0.95rem; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">Please enter your credentials to access the PSUR generation system</p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -74,15 +72,13 @@ def show_login_page():
                 logger.warning(f"Failed login attempt for user: {username}")
                 st.error("❌ Invalid username or password")
         
-        st.markdown('</div>', unsafe_allow_html=True)
-        
-        # Enhanced Information section
-        st.markdown('<hr class="pwc-divider">', unsafe_allow_html=True)
+        # Enhanced Information section with transparent background
+        st.markdown('<hr style="border: 1px solid rgba(224, 60, 49, 0.3); margin: 2rem 0;">', unsafe_allow_html=True)
         
         st.markdown("""
-        <div class="metric-card">
-            <h3 style="color: #E03C31; margin-bottom: 1rem;">📋 System Information</h3>
-            <p><strong>Pharma Pulse</strong> is a comprehensive PSUR generation system featuring:</p>
+        <div style="text-align: center; padding: 1rem; background: rgba(255,255,255,0.2); border-radius: 10px; backdrop-filter: blur(5px);">
+            <h3 style="color: #E03C31; margin-bottom: 1rem; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">📋 System Information</h3>
+            <p style="color: #444; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);"><strong>Pharma Pulse</strong> is a comprehensive PSUR generation system featuring:</p>
             <ul style="color: #333; line-height: 1.6;">
                 <li>✅ Multi-source pharmaceutical data validation</li>
                 <li>🤖 AI-powered PSUR reports (CDSCO compliant)</li>
