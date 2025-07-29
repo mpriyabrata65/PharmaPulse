@@ -6,12 +6,31 @@ logger = logging.getLogger(__name__)
 def show_login_page():
     """Display the login page with enhanced PwC branding"""
     
-    # Apply login page specific styling
+    # Apply login page with pharmaceutical background
     st.markdown("""
     <style>
     .stApp {
-        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDgwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojODdDRUVCO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNCMEUwRTY7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHBhdHRlcm4gaWQ9ImRvdHMiIHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+CiAgICA8L3BhdHRlcm4+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0idXJsKCNiZ0dyYWRpZW50KSIvPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0idXJsKCNkb3RzKSIvPgo8L3N2Zz4=') center/cover fixed,
-                linear-gradient(135deg, rgba(241, 241, 241, 0.85) 0%, rgba(232, 232, 232, 0.85) 100%) !important;
+        background: url('pharma_background.jpg') center/cover fixed !important;
+        position: relative;
+    }
+    
+    .stApp::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(224, 60, 49, 0.1);
+        z-index: 0;
+    }
+    
+    .main .block-container {
+        position: relative;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 15px !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
     }
     </style>
     """, unsafe_allow_html=True)

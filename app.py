@@ -60,14 +60,13 @@ st.markdown("""
         max-width: 1200px;
     }
     
-    /* Headers and Titles */
+    /* Clean Headers and Titles */
     .main-header {
         color: #E03C31;
         text-align: center;
         font-size: 2.8rem;
         font-weight: 700;
         margin-bottom: 2rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         font-family: 'Open Sans', sans-serif;
     }
     
@@ -75,6 +74,23 @@ st.markdown("""
         color: #E03C31 !important;
         font-family: 'Open Sans', sans-serif !important;
         font-weight: 600 !important;
+        background: transparent !important;
+    }
+    
+    /* Fix all header and text color issues */
+    .stApp header, .stApp .stMarkdown h1, .stApp .stMarkdown h2, .stApp .stMarkdown h3 {
+        background: transparent !important;
+        color: #E03C31 !important;
+    }
+    
+    /* Remove any black backgrounds from elements */
+    .stApp div[data-testid="stHeader"], .stApp div[data-testid="stToolbar"] {
+        background: transparent !important;
+    }
+    
+    /* Ensure all text elements have proper colors */
+    .stApp div, .stApp span, .stApp p {
+        background: transparent !important;
     }
     
     /* Clean login form styling */
@@ -89,7 +105,7 @@ st.markdown("""
     }
     
     /* Clean input styling */
-    .stTextInput > div > div > input {
+    .stTextInput > div > div > input, .stTextInput input {
         background: #FFFFFF !important;
         border: 2px solid #E8E8E8 !important;
         color: #333333 !important;
@@ -97,33 +113,42 @@ st.markdown("""
         padding: 0.75rem !important;
     }
     
-    .stTextInput > div > div > input:focus {
+    .stTextInput > div > div > input:focus, .stTextInput input:focus {
         background: #FFFFFF !important;
         border-color: #E03C31 !important;
         box-shadow: 0 0 0 3px rgba(224, 60, 49, 0.15) !important;
     }
     
-    /* Buttons - Primary */
-    .stButton > button {
-        background: linear-gradient(135deg, #E03C31 0%, #c72e24 100%);
+    /* Fix password input show/hide button */
+    .stTextInput button, .stTextInput > div > div button {
+        background: #E03C31 !important;
         color: white !important;
         border: none !important;
-        border-radius: 12px !important;
-        padding: 0.75rem 2rem !important;
+        border-radius: 4px !important;
+    }
+    
+    .stTextInput button:hover, .stTextInput > div > div button:hover {
+        background: #FFB612 !important;
+        color: #333333 !important;
+    }
+    
+    /* Clean Buttons - Primary */
+    .stButton > button {
+        background: #E03C31 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 0.75rem 1.5rem !important;
         font-weight: 600 !important;
         font-size: 1rem !important;
         transition: all 0.3s ease !important;
-        box-shadow: 0 4px 15px rgba(224, 60, 49, 0.3) !important;
         font-family: 'Open Sans', sans-serif !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.5px !important;
     }
     
     .stButton > button:hover {
-        background: linear-gradient(135deg, #FFB612 0%, #e5a50a 100%) !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 8px 25px rgba(255, 182, 18, 0.4) !important;
-        border: 2px solid #FFB612 !important;
+        background: #FFB612 !important;
+        color: #333333 !important;
+        transform: translateY(-1px) !important;
     }
     
     .stButton > button:active {
@@ -166,13 +191,17 @@ st.markdown("""
         font-family: 'Montserrat', sans-serif !important;
     }
     
-    /* Clean Sidebar Styling */
-    .css-1d391kg {
+    /* Clean Sidebar Styling - Fix Black Background */
+    .css-1d391kg, .css-1lcbmhc {
+        background: #E03C31 !important;
+    }
+    
+    .stSidebar > div:first-child {
         background: #E03C31 !important;
     }
     
     .sidebar .sidebar-content {
-        background: #E03C31;
+        background: #E03C31 !important;
         padding: 1rem;
     }
     
@@ -182,6 +211,28 @@ st.markdown("""
     
     .sidebar .sidebar-content h1, .sidebar .sidebar-content h2, .sidebar .sidebar-content h3 {
         color: white !important;
+    }
+    
+    /* Fix all sidebar elements and backgrounds */
+    .stSidebar .stSelectbox label, .stSidebar .stButton label, .stSidebar div[data-testid="stMarkdownContainer"] {
+        color: white !important;
+    }
+    
+    /* More comprehensive sidebar fixes */
+    .stSidebar, .stSidebar > div, .stSidebar .element-container, .stSidebar .stMarkdown {
+        background: #E03C31 !important;
+        color: white !important;
+    }
+    
+    .stSidebar button {
+        background: rgba(255, 255, 255, 0.2) !important;
+        color: white !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    .stSidebar button:hover {
+        background: #FFB612 !important;
+        color: #333333 !important;
     }
     
     /* Navigation Buttons in Sidebar */
