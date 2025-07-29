@@ -11,6 +11,16 @@ UI Preferences: Clickable sidebar navigation list instead of dropdown menu for e
 
 ## Recent Changes (July 29, 2025)
 
+### OpenAI to Gemini AI Migration (Latest)
+- **CRITICAL BUG FIX**: Fixed cross-product report contamination issue
+  - Reports now properly clear when switching between products
+  - Added session state management for product-specific data
+  - Visual feedback when product selection changes
+- Successfully migrated from OpenAI GPT-4o to Google Gemini 2.5 Flash
+- Updated all API calls and error handling for Gemini integration
+- Resolved quota limitations that were blocking report generation
+- Enhanced fallback report system for service interruptions
+
 ### Role-Based Authentication System
 - Enhanced login system with two user roles:
   - **Admin**: Full access to upload, validation, report generation, and editing

@@ -374,6 +374,19 @@ def show_report_generation_page():
         if selected_product:
             product_id = selected_product.split(' - ')[0]
             
+            # Clear previous report if a different product is selected
+            if st.session_state.get('report_product_id') != product_id:
+                # Clear old report data when switching products
+                if 'generated_report' in st.session_state:
+                    del st.session_state.generated_report
+                if 'edited_report_content' in st.session_state:
+                    del st.session_state.edited_report_content
+                if 'final_reviewer_notes' in st.session_state:
+                    del st.session_state.final_reviewer_notes
+                st.session_state.report_product_id = product_id
+                logger.info(f"Switched to product {product_id}, cleared previous report data")
+                st.info(f"🔄 Product changed to {product_id}. Previous report cleared - generate new report below.")
+            
             # Date Range Selection Section - PWC styled
             st.markdown('<div class="date-range-section">', unsafe_allow_html=True)
             st.markdown('<div class="date-header">📅 Report Date Range</div>', unsafe_allow_html=True)
