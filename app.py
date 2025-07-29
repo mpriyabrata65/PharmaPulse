@@ -18,34 +18,45 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Comprehensive PwC Brand Identity CSS with Pharmaceutical Background
+# Clean PwC Brand Identity CSS
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600;700&display=swap');
     
-    /* Global App Styling - Background only for login */
+    /* Global Clean App Styling */
     .stApp {
-        background: linear-gradient(135deg, #F1F1F1 0%, #E8E8E8 100%);
+        background: #FFFFFF;
         font-family: 'Montserrat', 'Open Sans', sans-serif;
         min-height: 100vh;
+        color: #333333;
     }
     
-    /* Login page specific background */
+    /* Login page background with pharmaceutical image */
     .login-page-bg {
-        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDgwMCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojODdDRUVCO3N0b3Atb3BhY2l0eToxIiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNCMEUwRTY7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHBhdHRlcm4gaWQ9ImRvdHMiIHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+CiAgICA8L3BhdHRlcm4+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0idXJsKCNiZ0dyYWRpZW50KSIvPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0udXJsKCNkb3RzKSIvPgo8L3N2Zz4=') center/cover fixed,
-                linear-gradient(135deg, rgba(241, 241, 241, 0.85) 0%, rgba(232, 232, 232, 0.85) 100%);
+        background: url('pharma_background.jpg') center/cover fixed;
         min-height: 100vh;
+        position: relative;
     }
     
-    /* Main Content Area - Fixed Container Issues */
+    .login-page-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(224, 60, 49, 0.1);
+        z-index: 0;
+    }
+    
+    /* Main Content Area - Clean White Background */
     .main .block-container {
-        padding: 1rem;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 15px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-        margin: 1rem auto;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(224, 60, 49, 0.1);
+        padding: 2rem;
+        background: #FFFFFF;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0 auto;
+        border: none;
         max-width: 1200px;
     }
     
@@ -66,27 +77,30 @@ st.markdown("""
         font-weight: 600 !important;
     }
     
-    /* Transparent login form styling - No white box */
+    /* Clean login form styling */
     .stForm {
-        background: rgba(255, 255, 255, 0.3) !important;
+        background: rgba(255, 255, 255, 0.95) !important;
         border-radius: 15px !important;
         padding: 2rem !important;
-        backdrop-filter: blur(10px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.4) !important;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+        border: 2px solid #E03C31 !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+        position: relative;
+        z-index: 1;
     }
     
-    /* Enhanced input styling for transparent background */
+    /* Clean input styling */
     .stTextInput > div > div > input {
-        background: rgba(255, 255, 255, 0.9) !important;
-        border: 2px solid rgba(224, 60, 49, 0.3) !important;
+        background: #FFFFFF !important;
+        border: 2px solid #E8E8E8 !important;
         color: #333333 !important;
+        border-radius: 8px !important;
+        padding: 0.75rem !important;
     }
     
     .stTextInput > div > div > input:focus {
-        background: rgba(255, 255, 255, 1) !important;
+        background: #FFFFFF !important;
         border-color: #E03C31 !important;
-        box-shadow: 0 0 0 2px rgba(224, 60, 49, 0.2) !important;
+        box-shadow: 0 0 0 3px rgba(224, 60, 49, 0.15) !important;
     }
     
     /* Buttons - Primary */
@@ -152,17 +166,21 @@ st.markdown("""
         font-family: 'Montserrat', sans-serif !important;
     }
     
-    /* Sidebar Styling */
+    /* Clean Sidebar Styling */
     .css-1d391kg {
-        background: linear-gradient(180deg, #E03C31 0%, #c72e24 100%) !important;
+        background: #E03C31 !important;
     }
     
     .sidebar .sidebar-content {
-        background: linear-gradient(180deg, #E03C31 0%, #c72e24 100%);
+        background: #E03C31;
         padding: 1rem;
     }
     
     .sidebar .sidebar-content .element-container {
+        color: white !important;
+    }
+    
+    .sidebar .sidebar-content h1, .sidebar .sidebar-content h2, .sidebar .sidebar-content h3 {
         color: white !important;
     }
     
@@ -336,11 +354,9 @@ st.markdown("""
         margin: 2rem 0;
     }
     
-    /* Background Pattern */
+    /* Clean background - no patterns */
     body {
-        background-image: 
-            radial-gradient(circle at 25% 25%, rgba(224, 60, 49, 0.05) 0%, transparent 50%),
-            radial-gradient(circle at 75% 75%, rgba(255, 182, 18, 0.05) 0%, transparent 50%);
+        background: #FFFFFF;
     }
     
     /* Download Buttons */
@@ -425,16 +441,16 @@ st.markdown("""
         }
     }
     
-    /* Fix Contrast Issues - Ensure All Text is Readable */
-    .stApp * {
+    /* Ensure readable text colors */
+    .stApp {
         color: #333333;
     }
     
-    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
+    .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4, .stMarkdown h5, .stMarkdown h6 {
         color: #E03C31 !important;
     }
     
-    .stApp .stMarkdown p, .stApp .stMarkdown div, .stApp .stMarkdown span {
+    .stMarkdown p, .stMarkdown div, .stMarkdown span, .stMarkdown li {
         color: #333333 !important;
     }
 </style>
