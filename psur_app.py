@@ -13,11 +13,15 @@ import utils
 logger = logging.getLogger(__name__)
 
 def main_app():
-    """Main application after successful login"""
+    """Main application after successful login with enhanced PwC branding"""
     
-    # Sidebar navigation with clickable list
-    st.sidebar.title("📊 Pharma Pulse")
-    st.sidebar.markdown("---")
+    # Enhanced sidebar with PwC branding
+    st.sidebar.markdown("""
+    <div style="text-align: center; padding: 1rem 0; background: rgba(255, 255, 255, 0.1); border-radius: 10px; margin-bottom: 1rem;">
+        <h2 style="color: white; margin: 0; font-size: 1.5rem;">💊 Pharma Pulse</h2>
+        <p style="color: rgba(255, 255, 255, 0.8); margin: 0.5rem 0 0 0; font-size: 0.9rem;">PSUR Generation System</p>
+    </div>
+    """, unsafe_allow_html=True)
     
     # Initialize current page in session state if not exists
     if 'current_page' not in st.session_state:
@@ -126,9 +130,17 @@ def logout():
     st.rerun()
 
 def show_data_upload_page():
-    """Display the data upload and validation page"""
+    """Display the data upload and validation page with enhanced PwC styling"""
     
-    st.markdown('<h1 class="main-header">📁 Data Upload & Validation</h1>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="fade-in">
+        <h1 class="main-header">📁 Data Upload & Validation</h1>
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <p style="font-size: 1.1rem; color: #666;">Upload and validate your pharmaceutical data files</p>
+            <hr class="pwc-divider">
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     
     # Check user role for access control
     user_role = st.session_state.get('role', '')
@@ -146,24 +158,48 @@ def show_data_upload_page():
     the required schema before processing.
     """)
     
-    # Required files information
+    # Enhanced required files information
     with st.expander("📋 Required File Schemas", expanded=False):
         st.markdown("""
-        **1. Products.csv:** ProductID, ProductName, INN, DosageForm, Strength
-        
-        **2. Authorizations.csv:** AuthorizationID, ProductID, Country, MarketingStatus, AuthorizationDate, LicenseNumber
-        
-        **3. AdverseEvents.csv:** AEID, ProductID, ReportedDate, PatientAge, Gender, EventDescription, Outcome
-        
-        **4. RegulatoryActions.csv:** ActionID, ProductID, ActionDate, Region, ActionTaken, Justification
-        
-        **5. ExposureEstimates.csv:** ExposureID, ProductID, Region, TimePeriod, EstimatedPatients, EstimationMethod
-        
-        **6. ClinicalStudies.csv:** StudyID, ProductID, StudyTitle, Status, CompletionDate
-        """)
+        <div class="metric-card" style="margin: 0;">
+            <h4 style="color: #E03C31; margin-bottom: 1rem;">📄 File Requirements</h4>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div style="padding: 1rem; background: rgba(224, 60, 49, 0.05); border-radius: 8px;">
+                    <h5 style="color: #E03C31; margin: 0 0 0.5rem 0;">1. Products.csv</h5>
+                    <p style="margin: 0; font-size: 0.9rem; color: #666;">ProductID, ProductName, INN, DosageForm, Strength</p>
+                </div>
+                <div style="padding: 1rem; background: rgba(224, 60, 49, 0.05); border-radius: 8px;">
+                    <h5 style="color: #E03C31; margin: 0 0 0.5rem 0;">2. Authorizations.csv</h5>
+                    <p style="margin: 0; font-size: 0.9rem; color: #666;">AuthorizationID, ProductID, Country, MarketingStatus, AuthorizationDate, LicenseNumber</p>
+                </div>
+                <div style="padding: 1rem; background: rgba(224, 60, 49, 0.05); border-radius: 8px;">
+                    <h5 style="color: #E03C31; margin: 0 0 0.5rem 0;">3. AdverseEvents.csv</h5>
+                    <p style="margin: 0; font-size: 0.9rem; color: #666;">AEID, ProductID, ReportedDate, PatientAge, Gender, EventDescription, Outcome</p>
+                </div>
+                <div style="padding: 1rem; background: rgba(224, 60, 49, 0.05); border-radius: 8px;">
+                    <h5 style="color: #E03C31; margin: 0 0 0.5rem 0;">4. RegulatoryActions.csv</h5>
+                    <p style="margin: 0; font-size: 0.9rem; color: #666;">ActionID, ProductID, ActionDate, Region, ActionTaken, Justification</p>
+                </div>
+                <div style="padding: 1rem; background: rgba(224, 60, 49, 0.05); border-radius: 8px;">
+                    <h5 style="color: #E03C31; margin: 0 0 0.5rem 0;">5. ExposureEstimates.csv</h5>
+                    <p style="margin: 0; font-size: 0.9rem; color: #666;">ExposureID, ProductID, Region, TimePeriod, EstimatedPatients, EstimationMethod</p>
+                </div>
+                <div style="padding: 1rem; background: rgba(224, 60, 49, 0.05); border-radius: 8px;">
+                    <h5 style="color: #E03C31; margin: 0 0 0.5rem 0;">6. ClinicalStudies.csv</h5>
+                    <p style="margin: 0; font-size: 0.9rem; color: #666;">StudyID, ProductID, StudyTitle, Status, CompletionDate</p>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
     
-    # File upload section
-    st.markdown("### 📤 Upload Files")
+    # Enhanced file upload section
+    st.markdown("""
+    <div class="metric-card">
+        <h3 style="color: #E03C31; margin-bottom: 1rem;">📤 Upload Your Data Files</h3>
+        <p style="color: #666; margin-bottom: 1rem;">Select the six required CSV files for PSUR generation. Each file will be automatically validated.</p>
+    </div>
+    """, unsafe_allow_html=True)
     
     uploaded_files = {}
     file_names = [
@@ -285,7 +321,15 @@ def show_report_generation_page():
     </style>
     """, unsafe_allow_html=True)
     
-    st.title("📄 PSUR Report Generation")
+    st.markdown("""
+    <div class="fade-in">
+        <h1 class="main-header">📄 PSUR Report Generation</h1>
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <p style="font-size: 1.1rem; color: #666;">Generate AI-powered PSUR reports with advanced analytics</p>
+            <hr class="pwc-divider">
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     
     # Role-based access control for report generation
     if user_role == 'reviewer':
@@ -313,7 +357,12 @@ def show_report_generation_page():
     products_df = st.session_state.uploaded_data.get('Products.csv')
     if products_df is not None and not products_df.empty:
         
-        st.markdown("### 🎯 Select Product for PSUR Generation")
+        st.markdown("""
+        <div class="metric-card">
+            <h3 style="color: #E03C31; margin-bottom: 1rem;">🎯 Select Product for PSUR Generation</h3>
+            <p style="color: #666; margin-bottom: 1rem;">Choose the pharmaceutical product for report generation</p>
+        </div>
+        """, unsafe_allow_html=True)
         
         # Product selection dropdown
         product_options = products_df[['ProductID', 'ProductName']].apply(
@@ -706,12 +755,97 @@ def show_data_visualization():
                         st.info("No exposure estimates data available for this product.")
 
 def show_account_page():
-    """Display account information and settings"""
+    """Display account information and settings with enhanced PwC styling"""
     
-    st.markdown('<h1 class="main-header">👤 Account Information</h1>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="fade-in">
+        <h1 class="main-header">👤 Account Information</h1>
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <p style="font-size: 1.1rem; color: #666;">Manage your account settings and session information</p>
+            <hr class="pwc-divider">
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     
-    # User information
+    # Enhanced user information
     col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("""
+        <div class="metric-card">
+            <h3 style="color: #E03C31; margin-bottom: 1rem;">👤 User Profile</h3>
+            <div style="padding: 1rem 0;">
+                <p><strong>Username:</strong> {}</p>
+                <p><strong>Role:</strong> <span style="color: #E03C31; font-weight: 600;">{}</span></p>
+                <p><strong>Login Time:</strong> {}</p>
+                <p><strong>Session Status:</strong> <span style="color: #28a745; font-weight: 600;">Active</span></p>
+            </div>
+        </div>
+        """.format(
+            st.session_state.get('username', 'Unknown'),
+            st.session_state.get('role', 'Unknown').title(),
+            datetime.now().strftime('%d-%b-%Y %H:%M')
+        ), unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown("""
+        <div class="metric-card">
+            <h3 style="color: #E03C31; margin-bottom: 1rem;">🔐 Role Permissions</h3>
+            <div style="padding: 1rem 0;">
+        """, unsafe_allow_html=True)
+        
+        user_role = st.session_state.get('role', '')
+        if user_role == 'admin':
+            st.markdown("""
+                <ul style="color: #333; line-height: 1.8;">
+                    <li>✅ Data Upload & Validation</li>
+                    <li>✅ PSUR Report Generation</li>
+                    <li>✅ Report Editing & Notes</li>
+                    <li>✅ Export to DOCX/PDF</li>
+                    <li>✅ Data Analytics & Visualization</li>
+                </ul>
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown("""
+                <ul style="color: #333; line-height: 1.8;">
+                    <li>❌ Data Upload & Validation</li>
+                    <li>❌ PSUR Report Generation</li>
+                    <li>❌ Report Editing & Notes</li>
+                    <li>✅ View Generated Reports</li>
+                    <li>✅ Export Reports</li>
+                </ul>
+            """, unsafe_allow_html=True)
+        
+        st.markdown('</div></div>', unsafe_allow_html=True)
+    
+    # System statistics
+    st.markdown("""
+    <div class="metric-card">
+        <h3 style="color: #E03C31; margin-bottom: 1rem;">📊 Session Statistics</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+    """, unsafe_allow_html=True)
+    
+    # Statistics cards
+    uploaded_files_count = len(st.session_state.get('uploaded_data', {}))
+    has_generated_report = 'generated_report' in st.session_state
+    notes_count = sum(len(notes) for notes in st.session_state.get('reviewer_notes', {}).values())
+    
+    st.markdown(f"""
+        <div style="text-align: center; padding: 1rem; background: rgba(224, 60, 49, 0.05); border-radius: 8px;">
+            <h4 style="color: #E03C31; margin: 0;">{uploaded_files_count}</h4>
+            <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.9rem;">Files Uploaded</p>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(255, 182, 18, 0.05); border-radius: 8px;">
+            <h4 style="color: #FFB612; margin: 0;">{'1' if has_generated_report else '0'}</h4>
+            <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.9rem;">Reports Generated</p>
+        </div>
+        <div style="text-align: center; padding: 1rem; background: rgba(40, 167, 69, 0.05); border-radius: 8px;">
+            <h4 style="color: #28a745; margin: 0;">{notes_count}</h4>
+            <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.9rem;">Reviewer Notes</p>
+        </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     
     with col1:
         st.markdown("### 👤 User Profile")

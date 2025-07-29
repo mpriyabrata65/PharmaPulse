@@ -1,0 +1,48 @@
+Update the entire Pharma Pulse Streamlit application UI to follow PwC’s brand identity.
+
+🎨 Theme & Styling Requirements:
+
+✅ Global Color Scheme:
+- Primary Red: `#E03C31`
+- Background: `#F1F1F1`
+- Text: `#333333`
+- Accent Yellow (optional): `#FFB612`
+
+💻 Apply these styles consistently for both the admin and the reviewer profile on :
+- Login Page
+- Upload Page
+- PSUR Report Page
+- Account Page
+- All Buttons, Titles, Forms, Tables, and Containers
+
+📌 Login Page:
+- Background: `#F1F1F1`
+- Centered login card with rounded corners and drop shadow
+- Title: "Welcome to Pharma Pulse" in **bold PwC red**
+- Input fields and submit button styled using primary color theme
+- Use `st.form` for better alignment
+
+📌 Upload, Report, and Account Pages:
+- Page background: `#F1F1F1`
+- Header bar or section headers: PwC Red `#E03C31`
+- All buttons: PwC red with white text; add hover effect (e.g., yellow border or background)
+- All section titles: bold, in PwC red
+- Tables: light background, red headers, alternating row shading for readability
+- All input forms and download buttons should match the brand theme
+
+🧩 Technical Implementation:
+- Use a centralized custom CSS block: `st.markdown("""<style> ... </style>""", unsafe_allow_html=True)`
+- Style `st.button`, `st.form`, `st.text_input`, `st.download_button`, etc. using CSS class or div wrappers
+- Ensure all pages maintain this design regardless of navigation or session changes
+
+📎Background Image: 
+- Add a visually appealing background image for the login page and use the icon to use it for the other ages related to pharmaceuticals, such as graphs or a medical imagery, to create a professional and thematic look.
+- Use Google Fonts (like Open Sans or Montserrat) if supported to match PwC typography
+
+📌 Ensure branding is preserved across:
+- All page navigations (login → upload → account → report)
+- Session state transitions
+- Responsive views (desktop and tablet)
+-Eye catching Design
+-Use modern fonts and styles to make the login page visually attractive.
+-Include subtle animations and maintain a clean, professional appearance
