@@ -6,15 +6,16 @@ logger = logging.getLogger(__name__)
 def show_login_page():
     """Display the login page with enhanced PwC branding"""
     
-    # Apply login page with PSUR pharmaceutical background elements
+    # Apply login page with pharmaceutical elements inspired by reference images
     st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(135deg, #F1F1F1 0%, #FFFFFF 50%, #F8F8F8 100%) !important;
+        background: linear-gradient(135deg, #F8F8F8 0%, #FFFFFF 100%) !important;
         position: relative;
+        overflow: hidden;
     }
     
-    /* Pharmaceutical Elements Background */
+    /* Grid Pattern Background (like medical chart paper) */
     .stApp::before {
         content: '';
         position: fixed;
@@ -23,46 +24,61 @@ def show_login_page():
         right: 0;
         bottom: 0;
         background-image: 
-            /* DNA Helix */
-            radial-gradient(circle at 15% 20%, rgba(224, 60, 49, 0.08) 1px, transparent 1px),
-            radial-gradient(circle at 85% 15%, rgba(255, 182, 18, 0.06) 1px, transparent 1px),
-            /* Molecular structures */
-            radial-gradient(circle at 25% 80%, rgba(224, 60, 49, 0.05) 2px, transparent 2px),
-            radial-gradient(circle at 75% 75%, rgba(255, 182, 18, 0.05) 1.5px, transparent 1.5px),
-            /* Data points */
-            radial-gradient(circle at 10% 60%, rgba(224, 60, 49, 0.04) 1px, transparent 1px),
-            radial-gradient(circle at 90% 40%, rgba(255, 182, 18, 0.04) 1px, transparent 1px),
-            radial-gradient(circle at 50% 30%, rgba(224, 60, 49, 0.03) 1px, transparent 1px);
-        background-size: 150px 150px, 120px 120px, 180px 180px, 100px 100px, 80px 80px, 90px 90px, 110px 110px;
+            linear-gradient(rgba(224, 60, 49, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(224, 60, 49, 0.05) 1px, transparent 1px);
+        background-size: 20px 20px;
         z-index: 0;
     }
     
-    /* Laboratory Equipment Overlays */
+    /* Pharmaceutical Pills as Chart Elements */
     .stApp::after {
-        content: '🧬 ⚗️ 💊 📊 🔬 ⚕️';
+        content: '';
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        font-size: 2rem;
-        color: rgba(224, 60, 49, 0.03);
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        flex-wrap: wrap;
+        background-image:
+            /* Red Pills (PwC Red) - forming chart bars */
+            radial-gradient(ellipse 12px 8px at 15% 75%, rgba(224, 60, 49, 0.15), transparent 70%),
+            radial-gradient(ellipse 10px 6px at 20% 70%, rgba(224, 60, 49, 0.12), transparent 70%),
+            radial-gradient(ellipse 14px 9px at 25% 65%, rgba(224, 60, 49, 0.18), transparent 70%),
+            radial-gradient(ellipse 16px 10px at 30% 55%, rgba(224, 60, 49, 0.20), transparent 70%),
+            
+            /* Yellow/Orange Pills (PwC Yellow) - forming ascending chart */
+            radial-gradient(ellipse 10px 6px at 70% 80%, rgba(255, 182, 18, 0.15), transparent 70%),
+            radial-gradient(ellipse 12px 8px at 75% 75%, rgba(255, 182, 18, 0.18), transparent 70%),
+            radial-gradient(ellipse 14px 9px at 80% 68%, rgba(255, 182, 18, 0.20), transparent 70%),
+            radial-gradient(ellipse 16px 10px at 85% 58%, rgba(255, 182, 18, 0.22), transparent 70%),
+            
+            /* Prescription Bottles - vertical chart elements */
+            linear-gradient(to top, rgba(224, 60, 49, 0.08) 0%, transparent 15%) 10% 85%/6px 40px no-repeat,
+            linear-gradient(to top, rgba(255, 182, 18, 0.10) 0%, transparent 20%) 15% 80%/6px 50px no-repeat,
+            linear-gradient(to top, rgba(224, 60, 49, 0.12) 0%, transparent 25%) 20% 75%/6px 60px no-repeat,
+            linear-gradient(to top, rgba(255, 182, 18, 0.14) 0%, transparent 30%) 25% 70%/6px 70px no-repeat,
+            
+            /* Capsules scattered like data points */
+            radial-gradient(ellipse 8px 4px at 45% 25%, rgba(224, 60, 49, 0.08), transparent 70%),
+            radial-gradient(ellipse 6px 3px at 55% 30%, rgba(255, 182, 18, 0.08), transparent 70%),
+            radial-gradient(ellipse 10px 5px at 40% 35%, rgba(224, 60, 49, 0.06), transparent 70%),
+            
+            /* Medical cross symbols */
+            linear-gradient(rgba(224, 60, 49, 0.04), rgba(224, 60, 49, 0.04)) 85% 20%/12px 2px no-repeat,
+            linear-gradient(rgba(224, 60, 49, 0.04), rgba(224, 60, 49, 0.04)) 85% 20%/2px 12px no-repeat,
+            linear-gradient(rgba(255, 182, 18, 0.04), rgba(255, 182, 18, 0.04)) 90% 85%/12px 2px no-repeat,
+            linear-gradient(rgba(255, 182, 18, 0.04), rgba(255, 182, 18, 0.04)) 90% 85%/2px 12px no-repeat;
         z-index: 0;
-        pointer-events: none;
     }
     
     .main .block-container {
         position: relative;
         z-index: 1;
-        background: rgba(255, 255, 255, 0.95) !important;
+        background: rgba(255, 255, 255, 0.96) !important;
         border-radius: 15px !important;
-        box-shadow: 0 8px 32px rgba(224, 60, 49, 0.15) !important;
-        backdrop-filter: blur(10px) !important;
-        border: 1px solid rgba(224, 60, 49, 0.1) !important;
+        box-shadow: 0 8px 32px rgba(224, 60, 49, 0.12) !important;
+        backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(224, 60, 49, 0.08) !important;
+        margin: 2rem auto !important;
     }
     </style>
     """, unsafe_allow_html=True)
