@@ -83,9 +83,20 @@ st.markdown("""
         color: #E03C31 !important;
     }
     
-    /* Remove any black backgrounds from elements */
+    /* Fix sidebar toggle button - make it visible */
     .stApp div[data-testid="stHeader"], .stApp div[data-testid="stToolbar"] {
         background: transparent !important;
+    }
+    
+    .stApp button[data-testid="collapsedControl"] {
+        background: #333333 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 4px !important;
+    }
+    
+    .stApp button[data-testid="collapsedControl"]:hover {
+        background: #E03C31 !important;
     }
     
     /* Ensure all text elements have proper colors */
@@ -132,8 +143,8 @@ st.markdown("""
         color: #333333 !important;
     }
     
-    /* Clean Buttons - Primary */
-    .stButton > button {
+    /* Clean Buttons - Primary and Form Submit */
+    .stButton > button, button[data-testid="baseButton-primary"], .stFormSubmitButton > button {
         background: #E03C31 !important;
         color: white !important;
         border: none !important;
@@ -145,13 +156,13 @@ st.markdown("""
         font-family: 'Open Sans', sans-serif !important;
     }
     
-    .stButton > button:hover {
+    .stButton > button:hover, button[data-testid="baseButton-primary"]:hover, .stFormSubmitButton > button:hover {
         background: #FFB612 !important;
         color: #333333 !important;
         transform: translateY(-1px) !important;
     }
     
-    .stButton > button:active {
+    .stButton > button:active, button[data-testid="baseButton-primary"]:active, .stFormSubmitButton > button:active {
         transform: translateY(0px) !important;
     }
     
