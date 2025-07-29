@@ -26,17 +26,19 @@ UI Preferences: Clickable sidebar navigation list instead of dropdown menu for e
 - Threaded comment history displays chronologically
 - Export functions now include all edits and notes in downloads
 
-### PwC Brand Identity Implementation
+### PwC Brand Identity Implementation & UI Fixes
 - Comprehensive visual redesign with PwC brand colors (#E03C31, #FFB612, #F1F1F1)
 - Modern typography using Google Fonts (Montserrat, Open Sans)
-- Enhanced login page with pharmaceutical background image and professional styling
-- Fixed login container white block issues and text contrast problems
-- Improved file upload interface with visual feedback
+- **NEW**: Custom PSUR-themed pharmaceutical background with scientific elements:
+  - DNA helixes, molecular structures, laboratory equipment
+  - Data charts, ECG waves, safety icons in PwC colors
+  - Capsules, test tubes, blister packs as subtle overlays
+- Fixed all black background issues on buttons, sidebar, and headers
+- Sidebar toggle button now uses PwC orange theme (#FFB612)
+- Enhanced CSV upload text visibility with proper contrast
+- Professional login page with pharmaceutical elements and glass-morphism effect
 - Branded sidebar navigation with role-based menu items
-- Enhanced tables with PwC colors, alternating rows, and hover effects
-- Fixed schema display rendering with proper HTML cards
 - Responsive design with mobile optimization
-- Professional metric cards with hover animations and proper contrast
 
 ## System Architecture
 

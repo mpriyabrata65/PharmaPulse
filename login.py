@@ -6,11 +6,11 @@ logger = logging.getLogger(__name__)
 def show_login_page():
     """Display the login page with enhanced PwC branding"""
     
-    # Apply login page with pharmaceutical background
+    # Apply login page with PSUR pharmaceutical background
     st.markdown("""
     <style>
     .stApp {
-        background: url('pharma_background.jpg') center/cover fixed !important;
+        background: url('pharma_psur_background.svg') center/cover fixed !important;
         position: relative;
     }
     
@@ -21,7 +21,7 @@ def show_login_page():
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(224, 60, 49, 0.1);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 241, 241, 0.85) 100%);
         z-index: 0;
     }
     
@@ -30,7 +30,9 @@ def show_login_page():
         z-index: 1;
         background: rgba(255, 255, 255, 0.95) !important;
         border-radius: 15px !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+        box-shadow: 0 8px 32px rgba(224, 60, 49, 0.1) !important;
+        backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(224, 60, 49, 0.1) !important;
     }
     </style>
     """, unsafe_allow_html=True)
