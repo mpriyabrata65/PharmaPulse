@@ -6,6 +6,7 @@ requires-python = ">=3.11"
 dependencies = [
     "anthropic>=0.59.0",
     "docx>=0.2.4",
+    "google-genai>=1.27.0",
     "markdown>=3.8.2",
     "matplotlib>=3.10.3",
     "openai>=1.97.1",
